@@ -1,0 +1,835 @@
+zend_version	;	获取当前 Zend 引擎的版本	;	string zend_version ( void )	;	获取当前运行的 Zend 引擎的版本字符串。
+func_num_args	;	Returns the number of arguments passed to the function	;	int func_num_args ( void )	;	Gets the number of arguments passed to the function.
+func_get_arg	;	Return an item from the argument list	;	mixed func_get_arg ( int $arg_num )	;	Gets the specified argument from a user-defined function's argument list.
+func_get_args	;	Returns an array comprising a function's argument list	;	array func_get_args ( void )	;	Gets an array of the function's argument list.
+strlen	;	获取字符串长度	;	int strlen ( string $string )	;	返回给定的字符串 string 的长度。
+strcmp	;	二进制安全字符串比较	;	int strcmp ( string $str1, string $str2 )	;	
+strncmp	;	二进制安全比较字符串开头的若干个字符	;	int strncmp ( string $str1, string $str2, int $len )	;	该函数与 strcmp() 类似，不同之处在于你可以指定两个字符串比较时使用的长度（即最大比较长度）。
+strcasecmp	;	二进制安全比较字符串（不区分大小写）	;	int strcasecmp ( string $str1, string $str2 )	;	二进制安全比较字符串（不区分大小写）。
+strncasecmp	;	二进制安全比较字符串开头的若干个字符（不区分大小写）	;	int strncasecmp ( string $str1, string $str2, int $len )	;	该函数与 strcasecmp() 类似，不同之处在于你可以指定两个字符串比较时使用的长度（即最大比较长度）。
+each	;	返回数组中当前的键／值对并将数组指针向前移动一步	;	array each ( array &$array )	;	返回数组中当前的键／值对并将数组指针向前移动一步
+error_reporting	;	设置应该报告何种 PHP 错误	;	int error_reporting ([ int $level ] )	;	error_reporting() 函数能够在运行时设置 error_reporting 指令。 PHP 有诸多错误级别，使用该函数可以设置在脚本运行时的级别。 如果没有设置可选参数 level， error_reporting() 仅会返回当前的错误报告级别。
+define	;	定义一个常量	;	bool define ( string $name, mixed $value [, bool $case_insensitive = false ] )	;	在运行时定义一个常量。
+defined	;	检查某个名称的常量是否存在	;	bool defined ( string $name )	;	检查该名称的常量是否已定义。
+get_class	;	返回对象的类名	;	string get_class ([ object $obj ] )	;	返回对象实例 obj 所属类的名字。如果 obj 不是一个对象则返回 FALSE。
+get_called_class	;	后期静态绑定（"Late Static Binding"）类的名称	;	string get_called_class ( void )	;	获取静态方法调用的类名。
+get_parent_class	;	返回对象或类的父类名	;	string get_parent_class ([ mixed $obj ] )	;	如果 obj 是对象，则返回对象实例 obj 所属类的父类名。
+method_exists	;	检查类的方法是否存在	;	bool method_exists ( mixed $object, string $method_name )	;	检查类的方法是否存在于指定的 object中。
+property_exists	;	检查对象或类是否具有该属性	;	bool property_exists ( mixed $class, string $property )	;	本函数检查给出的 property 是否存在于指定的类中（以及是否能在当前范围内访问）。
+class_exists	;	检查类是否已定义	;	bool class_exists ( string $class_name [, bool $autoload = true ] )	;	检查指定的类是否已定义。
+interface_exists	;	检查接口是否已被定义	;	bool interface_exists ( string $interface_name [, bool $autoload = true ] )	;	检查接口是否已被定义。
+trait_exists	;	检查指定的 trait 是否存在	;	bool trait_exists ( string $traitname [, bool $autoload ] )	;	
+function_exists	;	Return TRUE if the given function has been defined	;	bool function_exists ( string $function_name )	;	Checks the list of defined functions, both built-in (internal) and user-defined, for function_name.
+class_alias	;	为一个类创建别名	;	bool class_alias ( string $original, string $alias [, bool $autoload = TRUE ] )	;	基于已定义的类 original 创建别名 alias。 这个别名类和原有的类完全相同。
+get_included_files	;	返回被 include 和 require 文件名的 array	;	array get_included_files ( void )	;	返回所有被 include 、 include_once 、 require 和 require_once 的文件名。
+get_required_files	;	别名  get_included_files()	;		;	
+is_subclass_of	;	如果此对象是该类的子类，则返回 TRUE	;	bool is_subclass_of ( object $object, string $class_name )	;	如果对象 object 所属类是类 class_name 的子类，则返回 TRUE，否则返回 FALSE。
+is_a	;	如果对象属于该类或该类是此对象的父类则返回 TRUE	;	bool is_a ( object $object, string $class_name )	;	如果对象是该类或该类是此对象的父类则返回 TRUE，否则返回 FALSE。
+get_class_vars	;	返回由类的默认属性组成的数组	;	array get_class_vars ( string $class_name )	;	返回由类的默认公有属性组成的关联数组，此数组的元素以 varname => value 的形式存在。
+get_object_vars	;	返回由对象属性组成的关联数组	;	array get_object_vars ( object $obj )	;	返回由 obj 指定的对象中定义的属性组成的关联数组。
+get_class_methods	;	返回由类的方法名组成的数组	;	array get_class_methods ( mixed $class_name )	;	返回由类的方法名组成的数组。
+trigger_error	;	产生一个用户级别的 error/warning/notice 信息	;	bool trigger_error ( string $error_msg [, int $error_type = E_USER_NOTICE ] )	;	用于触发一个用户级别的错误条件，它能结合内置的错误处理器所关联，或者可以使用用户定义的函数作为新的错误处理程序( set_error_handler() )。
+user_error	;	trigger_error()  的别名	;		;	
+set_error_handler	;	设置一个用户定义的错误处理函数	;	handler ( int $errno, string $errstr [, string $errfile [, int $errline [, array $errcontext ]]] )	;	设置一个用户的函数(error_handler)来处理脚本中出现的错误。
+restore_error_handler	;	还原之前的错误处理函数	;	bool restore_error_handler ( void )	;	在使用 set_error_handler() 改变错误处理函数之后，此函数可以 用于还原之前的错误处理程序(可以是内置的或者也可以是用户所定义的函数)。
+set_exception_handler	;	设置一个用户定义的异常处理函数。	;	callable set_exception_handler ( callable $exception_handler )	;	设置默认的异常处理程序，用于没有用 try/catch 块来捕获的异常。 在 exception_handler 调用后异常会中止。
+restore_exception_handler	;	恢复之前定义过的异常处理函数。	;	bool restore_exception_handler ( void )	;	在使用 set_exception_handler() 改变异常处理函数之后，此函数可以 用于还原之前的异常处理程序(可以是内置的或者也可以是用户所定义的函数)。
+get_declared_classes	;	返回由已定义类的名字所组成的数组	;	array get_declared_classes ( void )	;	返回由当前脚本中已定义类的名字组成的数组。
+get_declared_traits	;	返回所有已定义的 traits 的数组	;	array get_declared_traits ( void )	;	
+get_declared_interfaces	;	返回一个数组包含所有已声明的接口	;	array get_declared_interfaces ( void )	;	返回一个数组包含所有已声明的接口。
+get_defined_functions	;	Returns an array of all defined functions	;	array get_defined_functions ( void )	;	Gets an array of all defined functions.
+get_defined_vars	;	返回由所有已定义变量所组成的数组	;	array get_defined_vars ( void )	;	此函数返回一个包含所有已定义变量列表的多维数组，这些变量包括环境变量、服务器变量和用户定义的变量。 <span style="color: #000000"> <span style="color: #0000BB"><?php<br />$b&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #0000BB">3</span><span style="color: #007700">,</span><span style="color: #0000BB">5</span><span style="color: #007700">,</span><span style="color: #0000BB">8</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$arr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">get_defined_vars</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;打印&nbsp;$b<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">"b"</span><span style="color: #007700">]);<br /><br /></span><span style="color: #FF8000">//&nbsp;打印&nbsp;PHP&nbsp;解释程序的路径（如果&nbsp;PHP&nbsp;作为&nbsp;CGI&nbsp;使用的话）<br />//&nbsp;例如：/usr/local/bin/php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">"_"</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;打印命令行参数（如果有的话）<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">"argv"</span><span style="color: #007700">]);<br /><br /></span><span style="color: #FF8000">//&nbsp;打印所有服务器变量<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr</span><span style="color: #007700">[</span><span style="color: #DD0000">"_SERVER"</span><span style="color: #007700">]);<br /><br /></span><span style="color: #FF8000">//&nbsp;打印变量数组的所有可用键值<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">array_keys</span><span style="color: #007700">(</span><span style="color: #0000BB">get_defined_vars</span><span style="color: #007700">()));<br /></span><span style="color: #0000BB">?></span> </span>
+create_function	;	Create an anonymous (lambda-style) function	;	string create_function ( string $args, string $code )	;	Creates an anonymous function from the parameters passed, and returns a unique name for it.
+get_resource_type	;	返回资源（resource）类型	;	string get_resource_type ( resource $handle )	;	此函数返回一个字符串，用于表示传递给它的 resource 的类型。如果参数不是合法的 resource ，将产生错误。 <span style="color: #000000"> <span style="color: #0000BB"><?php<br />$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">get_resource_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$c</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;打印：mysql&nbsp;link<br /><br /></span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,</span><span style="color: #DD0000">"w"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">get_resource_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;打印：file<br /><br /></span><span style="color: #0000BB">$doc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">new_xmldoc</span><span style="color: #007700">(</span><span style="color: #DD0000">"1.0"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">get_resource_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-></span><span style="color: #0000BB">doc</span><span style="color: #007700">).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;打印：domxml&nbsp;document<br /></span><span style="color: #0000BB">?></span> </span>
+get_loaded_extensions	;	返回所有编译并加载模块名的 array	;	array get_loaded_extensions ([ bool $zend_extensions = false ] )	;	该函数返回了 PHP 解析器里所有编译并加载的模块名。
+extension_loaded	;	检查一个扩展是否已经加载	;	bool extension_loaded ( string $name )	;	检查一个扩展是否已经加载。
+get_extension_funcs	;	返回模块函数名称的数组	;	array get_extension_funcs ( string $module_name )	;	该函数根据 module_name 返回模块内定义的所有函数的名称。
+get_defined_constants	;	返回所有常量的关联数组，键是常量名，值是常量值	;	array get_defined_constants ([ bool $categorize = false ] )	;	返回当前所有已定义的常量名和值。 这包含 define() 函数所创建的，也包含了所有扩展所创建的。
+debug_backtrace	;	产生一条回溯跟踪(backtrace)	;	array debug_backtrace ([ int $options = DEBUG_BACKTRACE_PROVIDE_OBJECT [, int $limit = 0 ]] )	;	debug_backtrace() 产生一条 PHP 的回溯跟踪(backtrace)。
+debug_print_backtrace	;	打印一条回溯。	;	void debug_print_backtrace ([ int $options = 0 [, int $limit = 0 ]] )	;	debug_print_backtrace() 打印了一条 PHP 回溯。它打印了函数调用、被 included/required 的文件和 eval() 的代码。
+gc_collect_cycles	;	强制收集所有现存的垃圾循环周期	;	int gc_collect_cycles ( void )	;	强制收集所有现存的垃圾循环周期。
+gc_enabled	;	返回循环引用计数器的状态	;	bool gc_enabled ( void )	;	返回循环引用计数器的状态。
+gc_enable	;	激活循环引用收集器	;	void gc_enable ( void )	;	设置 zend.enable_gc 为 1， 激活循环引用收集器。
+gc_disable	;	停用循环引用收集器	;	void gc_disable ( void )	;	停用循环引用收集器，设置 zend.enable_gc 为 0。
+strtotime	;	将任何英文文本的日期时间描述解析为 Unix 时间戳	;	int strtotime ( string $time [, int $now = time() ] )	;	
+date	;	格式化一个本地时间／日期	;	string date ( string $format [, int $timestamp ] )	;	返回将整数 timestamp 按照给定的格式字串而产生的字符串。如果没有给出时间戳则使用本地当前时间。换句话说，timestamp 是可选的，默认值为 time() 。
+idate	;	将本地时间日期格式化为整数	;	int idate ( string $format [, int $timestamp ] )	;	根据给定的格式字符对 timestamp 格式化并返回数字结果。timestamp 为可选项，默认值为本地当前时间，即 time() 的值。
+gmdate	;	格式化一个 GMT/UTC 日期／时间	;	string gmdate ( string $format [, int $timestamp ] )	;	同 date() 函数完全一样，只除了返回的时间是格林威治标准时（GMT）。例如当在中国（GMT +0800）运行以下程序时，第一行显示“Jan 01 2000 00:00:00”而第二行显示“Dec 31 1999 16:00:00”。 Example #1 gmdate() 例子 <span style="color: #000000"> <span style="color: #0000BB"><?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">"M&nbsp;d&nbsp;Y&nbsp;H:i:s"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">gmdate</span><span style="color: #007700">(</span><span style="color: #DD0000">"M&nbsp;d&nbsp;Y&nbsp;H:i:s"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #0000BB">2000</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?></span> </span>
+mktime	;	取得一个日期的 Unix 时间戳	;	int mktime ([ int $hour = date("H") [, int $minute = date("i") [, int $second = date("s") [, int $month = date("n") [, int $day = date("j") [, int $year = date("Y") [, int $is_dst = -1 ]]]]]]] )	;	根据给出的参数返回 Unix 时间戳。时间戳是一个长整数，包含了从 Unix 纪元（January 1 1970 00:00:00 GMT）到给定时间的秒数。
+gmmktime	;	取得 GMT 日期的 UNIX 时间戳	;	int gmmktime ([ int $hour [, int $minute [, int $second [, int $month [, int $day [, int $year [, int $is_dst ]]]]]]] )	;	和 mktime() 完全一样，只除了返回值是格林威治标准时的时间戳。
+checkdate	;	验证一个格里高里日期	;	bool checkdate ( int $month, int $day, int $year )	;	检查由参数构成的日期的合法性。如果每个参数都正确定义了则会被认为是有效的。
+strftime	;	根据区域设置格式化本地时间／日期	;	string strftime ( string $format [, int $timestamp = time() ] )	;	返回用给定的格式字串对给出的 timestamp 进行格式输出后的字符串。如果没有给出时间戳则用当前的本地时间。月份和星期几以及其它和语言有关的字符串写法和用 setlocale() 设定的当前的区域有关。
+gmstrftime	;	根据区域设置格式化 GMT/UTC 时间／日期	;	string gmstrftime ( string $format [, int $timestamp ] )	;	和 strftime() 的行为相同，只除了返回时间是格林威治标准时（GMT）。例如，当在东部标准时（EST，GMT -500）运行时，下面第一行显示“Dec 31 1998 20:00:00”，而第二行显示“Jan 01 1999 01:00:00”。 Example #1 gmstrftime() 例子 <span style="color: #000000"> <span style="color: #0000BB"><?php<br />setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_TIME</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'en_US'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">strftime</span><span style="color: #007700">(</span><span style="color: #DD0000">"%b&nbsp;%d&nbsp;%Y&nbsp;%H:%M:%S"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">20</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">12</span><span style="color: #007700">,</span><span style="color: #0000BB">31</span><span style="color: #007700">,</span><span style="color: #0000BB">98</span><span style="color: #007700">)).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">gmstrftime</span><span style="color: #007700">(</span><span style="color: #DD0000">"%b&nbsp;%d&nbsp;%Y&nbsp;%H:%M:%S"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">20</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">12</span><span style="color: #007700">,</span><span style="color: #0000BB">31</span><span style="color: #007700">,</span><span style="color: #0000BB">98</span><span style="color: #007700">)).</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?></span> </span>
+time	;	返回当前的 Unix 时间戳	;	int time ( void )	;	返回自从 Unix 纪元（格林威治时间 1970 年 1 月 1 日 00:00:00）到当前时间的秒数。
+localtime	;	取得本地时间	;	array localtime ([ int $timestamp = time() [, bool $is_associative = false ]] )	;	localtime() 函数返回一个数组，其结构和 C 函数调用返回的完全一样。
+getdate	;	取得日期／时间信息	;	array getdate ([ int $timestamp = time() ] )	;	返回一个根据 timestamp 得出的包含有日期信息的关联数组 array 。如果没有给出时间戳则认为是当前本地时间。
+date_create	;	别名  DateTime::__construct()	;		;	
+date_create_from_format	;	别名  DateTime::createFromFormat()	;		;	
+date_parse	;	Returns associative array with detailed info about given date	;	array date_parse ( string $date )	;	
+date_parse_from_format	;	Get info about given date formatted according to the specified format	;	array date_parse_from_format ( string $format, string $date )	;	Returns associative array with detailed info about given date.
+date_get_last_errors	;	别名  DateTime::getLastErrors()	;		;	
+date_format	;	别名  DateTime::format()	;		;	
+date_modify	;	别名  DateTime::modify()	;		;	
+date_add	;	别名  DateTime::add()	;		;	
+date_sub	;	别名  DateTime::sub()	;		;	
+date_timezone_get	;	别名  DateTime::getTimezone()	;		;	
+date_timezone_set	;	别名  DateTime::setTimezone()	;		;	
+date_offset_get	;	别名  DateTime::getOffset()	;		;	
+date_diff	;	别名  DateTime::diff()	;		;	
+date_time_set	;	别名  DateTime::setTime()	;		;	
+date_date_set	;	别名  DateTime::setDate()	;		;	
+date_isodate_set	;	别名  DateTime::setISODate()	;		;	
+date_timestamp_set	;	别名  DateTime::setTimestamp()	;		;	
+date_timestamp_get	;	别名  DateTime::getTimestamp()	;		;	
+timezone_open	;	别名  DateTimeZone::__construct()	;		;	
+timezone_name_get	;	别名  DateTimeZone::getName()	;		;	
+timezone_name_from_abbr	;	Returns the timezone name from abbreviation	;	string timezone_name_from_abbr ( string $abbr [, int $gmtOffset = -1 [, int $isdst = -1 ]] )	;	
+timezone_offset_get	;	别名  DateTimeZone::getOffset()	;		;	
+timezone_transitions_get	;	别名  DateTimeZone::getTransitions()	;		;	
+timezone_location_get	;	别名  DateTimeZone::getLocation()	;		;	
+timezone_identifiers_list	;	别名  DateTimeZone::listIdentifiers()	;		;	
+timezone_abbreviations_list	;	别名  DateTimeZone::listAbbreviations()	;		;	
+timezone_version_get	;	Gets the version of the timezonedb	;	string timezone_version_get ( void )	;	Returns the current version of the timezonedb.
+date_interval_create_from_date_string	;	别名  DateInterval::createFromDateString()	;		;	
+date_interval_format	;	别名  DateInterval::format()	;		;	
+date_default_timezone_set	;	设定用于一个脚本中所有日期时间函数的默认时区	;	bool date_default_timezone_set ( string $timezone_identifier )	;	date_default_timezone_set() 设定用于所有日期时间函数的默认时区。
+date_default_timezone_get	;	取得一个脚本中所有日期时间函数所使用的默认时区	;	string date_default_timezone_get ( void )	;	本函数返回默认时区，使用如下“假定”的顺序： 用 date_default_timezone_set() 函数设定的时区（如果设定了的话） 仅仅在 PHP 5.4.0 之前： TZ 环境变量（如果非空） date.timezone 配置选项（如果设定了的话） 仅仅在 PHP 5.4.0 之前： 查询操作系统主机 (如果操作系统支持并允许)。 This uses an algorithm that has to guess the timezone. This is by no means going to work correctly for every situation. A warning is shown when this stage is reached. Do not rely on it to be guessed correctly, and set date.timezone to the correct timezone instead. 如果以上选择都不成功， date_default_timezone_get() 会则返回 UTC 的默认时区。
+date_sunrise	;	返回给定的日期与地点的日出时间	;	mixed date_sunrise ( int $timestamp [, int $format = SUNFUNCS_RET_STRING [, float $latitude = ini_get("date.default_latitude") [, float $longitude = ini_get("date.default_longitude") [, float $zenith = ini_get("date.sunrise_zenith") [, float $gmt_offset = 0 ]]]]] )	;	date_sunrise() 返回给定的日期（以 timestamp 指定）与地点的日出时间。
+date_sunset	;	返回给定的日期与地点的日落时间	;	mixed date_sunset ( int $timestamp [, int $format = SUNFUNCS_RET_STRING [, float $latitude = ini_get("date.default_latitude") [, float $longitude = ini_get("date.default_longitude") [, float $zenith = ini_get("date.sunset_zenith") [, float $gmt_offset = 0 ]]]]] )	;	date_sunset() 返回给定的日期（以 timestamp 指定）与地点的日落时间。
+date_sun_info	;	Returns an array with information about sunset/sunrise and twilight begin/end	;	array date_sun_info ( int $time, float $latitude, float $longitude )	;	
+ereg	;	正则表达式匹配	;	int ereg ( string $pattern, string $string [, array &$regs ] )	;	
+ereg_replace	;	正则表达式替换	;	string ereg_replace ( string $pattern, string $replacement, string $string )	;	
+eregi	;	不区分大小写的正则表达式匹配	;	int eregi ( string $pattern, string $string [, array &$regs ] )	;	本函数和 ereg() 完全相同，只除了在匹配字母字符时忽略大小写的区别。
+eregi_replace	;	不区分大小写的正则表达式替换	;	string eregi_replace ( string $pattern, string $replacement, string $string )	;	本函数和 ereg_replace() 完全相同，只除了在匹配字母字符时忽略大小写的区别。
+split	;	用正则表达式将字符串分割到数组中	;	array split ( string $pattern, string $string [, int $limit ] )	;	
+spliti	;	用正则表达式不区分大小写将字符串分割到数组中	;	array spliti ( string $pattern, string $string [, int $limit = -1 ] )	;	用正则表达式将一个 string 分割成数组。
+sql_regcase	;	产生用于不区分大小的匹配的正则表达式	;	string sql_regcase ( string $string )	;	产生用于不区分大小的匹配的正则表达式
+libxml_set_streams_context	;	Set the streams context for the next libxml document load or write	;	void libxml_set_streams_context ( resource $streams_context )	;	Sets the streams context for the next libxml document load or write.
+libxml_use_internal_errors	;	Disable libxml errors and allow user to fetch error information as needed	;	bool libxml_use_internal_errors ([ bool $use_errors = false ] )	;	libxml_use_internal_errors() allows you to disable standard libxml errors and enable user error handling.
+libxml_get_last_error	;	Retrieve last error from libxml	;	LibXMLError libxml_get_last_error ( void )	;	Retrieve last error from libxml.
+libxml_clear_errors	;	Clear libxml error buffer	;	void libxml_clear_errors ( void )	;	libxml_clear_errors() clears the libxml error buffer.
+libxml_get_errors	;	Retrieve array of errors	;	array libxml_get_errors ( void )	;	Retrieve array of errors.
+libxml_disable_entity_loader	;	Disable the ability to load external entities	;	bool libxml_disable_entity_loader ([ bool $disable = true ] )	;	Disable/enable the ability to load external entities.
+libxml_set_external_entity_loader	;	Changes the default external entity loader	;	void libxml_set_external_entity_loader ( callable $resolver_function )	;	Changes the default external entity loader.
+preg_match	;	执行一个正则表达式匹配	;	int preg_match ( string $pattern, string $subject [, array &$matches [, int $flags = 0 [, int $offset = 0 ]]] )	;	搜索subject与pattern给定的正则表达式的一个匹配.
+preg_match_all	;	执行一个全局正则表达式匹配	;	int preg_match_all ( string $pattern, string $subject [, array &$matches [, int $flags = PREG_PATTERN_ORDER [, int $offset = 0 ]]] )	;	搜索subject中所有匹配pattern给定正则表达式 的匹配结果并且将它们以flag指定顺序输出到matches中.
+preg_replace	;	执行一个正则表达式的搜索和替换	;	mixed preg_replace ( mixed $pattern, mixed $replacement, mixed $subject [, int $limit = -1 [, int &$count ]] )	;	搜索subject中匹配pattern的部分， 以replacement进行替换。
+preg_replace_callback	;	执行一个正则表达式搜索并且使用一个回调进行替换	;	mixed preg_replace_callback ( mixed $pattern, callable $callback, mixed $subject [, int $limit = -1 [, int &$count ]] )	;	这个函数的行为除了 可以指定一个 callback 替代 replacement 进行替换 字符串的计算，其他方面等同于 preg_replace() 。
+preg_filter	;	执行一个正则表达式搜索和替换	;	mixed preg_filter ( mixed $pattern, mixed $replacement, mixed $subject [, int $limit = -1 [, int &$count ]] )	;	preg_filter() 等价于 preg_replace() 除了它仅仅返回(可能经过转化)与目标匹配的结果. 这个函数怎样工作的更详细信息请阅读 preg_replace() 文档.
+preg_split	;	通过一个正则表达式分隔字符串	;	array preg_split ( string $pattern, string $subject [, int $limit = -1 [, int $flags = 0 ]] )	;	通过一个正则表达式分隔给定字符串.
+preg_quote	;	转义正则表达式字符	;	string preg_quote ( string $str [, string $delimiter = NULL ] )	;	preg_quote() 需要参数 str 并向其中 每个正则表达式语法中的字符前增加一个反斜线。 这通常用于你有一些运行时字符串 需要作为正则表达式进行匹配的时候。
+preg_grep	;	返回匹配模式的数组条目	;	array preg_grep ( string $pattern, array $input [, int $flags = 0 ] )	;	返回给定数组input中与模式pattern 匹配的元素组成的数组.
+preg_last_error	;	返回最后一个PCRE正则执行产生的错误代码	;	int preg_last_error ( void )	;	返回最后一次PCRE正则执行的错误代码。
+ctype_alnum	;	Check for alphanumeric character(s)	;	bool ctype_alnum ( string $text )	;	Checks if all of the characters in the provided string , text, are alphanumeric.
+ctype_alpha	;	Check for alphabetic character(s)	;	bool ctype_alpha ( string $text )	;	Checks if all of the characters in the provided string , text, are alphabetic. In the standard C locale letters are just [A-Za-z] and ctype_alpha() is equivalent to (ctype_upper($text) || ctype_lower($text)) if $text is just a single character, but other languages have letters that are considered neither upper nor lower case.
+ctype_cntrl	;	Check for control character(s)	;	bool ctype_cntrl ( string $text )	;	Checks if all of the characters in the provided string , text, are control characters. Control characters are e.g. line feed, tab, escape.
+ctype_digit	;	Check for numeric character(s)	;	bool ctype_digit ( string $text )	;	Checks if all of the characters in the provided string , text, are numerical.
+ctype_lower	;	Check for lowercase character(s)	;	bool ctype_lower ( string $text )	;	Checks if all of the characters in the provided string , text, are lowercase letters.
+ctype_graph	;	Check for any printable character(s) except space	;	bool ctype_graph ( string $text )	;	Checks if all of the characters in the provided string , text, creates visible output.
+ctype_print	;	Check for printable character(s)	;	bool ctype_print ( string $text )	;	Checks if all of the characters in the provided string , text, are printable.
+ctype_punct	;	Check for any printable character which is not whitespace or an    alphanumeric character	;	bool ctype_punct ( string $text )	;	Checks if all of the characters in the provided string , text, are punctuation character.
+ctype_space	;	Check for whitespace character(s)	;	bool ctype_space ( string $text )	;	Checks if all of the characters in the provided string , text, creates whitespace.
+ctype_upper	;	Check for uppercase character(s)	;	bool ctype_upper ( string $text )	;	Checks if all of the characters in the provided string , text, are uppercase characters.
+ctype_xdigit	;	Check for character(s) representing a hexadecimal digit	;	bool ctype_xdigit ( string $text )	;	Checks if all of the characters in the provided string , text, are hexadecimal 'digits'.
+dom_import_simplexml	;	Gets a DOMElement object from a    SimpleXMLElement object	;	DOMElement dom_import_simplexml ( SimpleXMLElement $node )	;	This function takes the node node of class SimpleXML and makes it into a DOMElement node. This new object can then be used as a native DOMElement node.
+finfo_open	;	Create a new fileinfo resource	;	finfo::__construct() ([ int $options = FILEINFO_NONE [, string $magic_file = NULL ]] )	;	This function opens a magic database and returns its resource.
+finfo_close	;	Close fileinfo resource	;	bool finfo_close ( resource $finfo )	;	This function closes the resource opened by finfo_open() .
+finfo_set_flags	;	Set libmagic configuration options	;	bool finfo::set_flags ( int $options )	;	This function sets various Fileinfo options. Options can be set also directly in finfo_open() or other Fileinfo functions.
+finfo_file	;	Return information about a file	;	string finfo::file ( string $file_name = NULL [, int $options = FILEINFO_NONE [, resource $context = NULL ]] )	;	This function is used to get information about a file.
+finfo_buffer	;	Return information about a string buffer	;	string finfo::buffer ( string $string = NULL [, int $options = FILEINFO_NONE [, resource $context = NULL ]] )	;	This function is used to get information about binary data in a string.
+mime_content_type	;	Detect MIME Content-type for a file (deprecated)	;	string mime_content_type ( string $filename )	;	Returns the MIME content type for a file as determined by using information from the magic.mime file.
+filter_input	;	Gets a specific external variable by name and optionally filters it	;	mixed filter_input ( int $type, string $variable_name [, int $filter = FILTER_DEFAULT [, mixed $options ]] )	;	
+filter_var	;	Filters a variable with a specified filter	;	mixed filter_var ( mixed $variable [, int $filter = FILTER_DEFAULT [, mixed $options ]] )	;	
+filter_input_array	;	Gets external variables and optionally filters them	;	mixed filter_input_array ( int $type [, mixed $definition ] )	;	This function is useful for retrieving many values without repetitively calling filter_input() .
+filter_var_array	;	Gets multiple variables and optionally filters them	;	mixed filter_var_array ( array $data [, mixed $definition ] )	;	This function is useful for retrieving many values without repetitively calling filter_var() .
+filter_list	;	Returns a list of all supported filters	;	array filter_list ( void )	;	
+filter_has_var	;	Checks if variable of specified type exists	;	bool filter_has_var ( int $type, string $variable_name )	;	
+filter_id	;	Returns the filter ID belonging to a named filter	;	int filter_id ( string $filtername )	;	
+hash	;	Generate a hash value (message digest)	;	string hash ( string $algo, string $data [, bool $raw_output = false ] )	;	
+hash_file	;	Generate a hash value using the contents of a given file	;	string hash_file ( string $algo, string $filename [, bool $raw_output = false ] )	;	
+hash_hmac	;	Generate a keyed hash value using the HMAC method	;	string hash_hmac ( string $algo, string $data, string $key [, bool $raw_output = false ] )	;	
+hash_hmac_file	;	Generate a keyed hash value using the HMAC method and the contents of a given file	;	string hash_hmac_file ( string $algo, string $filename, string $key [, bool $raw_output = false ] )	;	
+hash_init	;	Initialize an incremental hashing context	;	resource hash_init ( string $algo [, int $options = 0 [, string $key = NULL ]] )	;	
+hash_update	;	Pump data into an active hashing context	;	bool hash_update ( resource $context, string $data )	;	
+hash_update_stream	;	Pump data into an active hashing context from an open stream	;	int hash_update_stream ( resource $context, resource $handle [, int $length = -1 ] )	;	
+hash_update_file	;	Pump data into an active hashing context from a file	;	bool hash_update_file ( resource $context, string $filename [, resource $context = NULL ] )	;	
+hash_final	;	Finalize an incremental hash and return resulting digest	;	string hash_final ( resource $context [, bool $raw_output = false ] )	;	
+hash_copy	;	Copy hashing context	;	resource hash_copy ( resource $context )	;	
+hash_algos	;	Return a list of registered hashing algorithms	;	array hash_algos ( void )	;	
+iconv	;	字符串按要求的字符编码来转换	;	string iconv ( string $in_charset, string $out_charset, string $str )	;	将字符串 str 从 in_charset 转换编码到 out_charset。
+iconv_get_encoding	;	获取 iconv 扩展的内部配置变量	;	mixed iconv_get_encoding ([ string $type = "all" ] )	;	获取 iconv 扩展的内部配置变量。
+iconv_set_encoding	;	为字符编码转换设定当前设置	;	bool iconv_set_encoding ( string $type, string $charset )	;	将 type 设置的值从内部配置变量更改为 charset。
+iconv_strlen	;	返回字符串的字符数统计	;	int iconv_strlen ( string $str [, string $charset = ini_get("iconv.internal_encoding") ] )	;	和 strlen() 不同的是， iconv_strlen() 统计了给定的字节序列 str 中出现字符数的统计，基于指定的字符集，其产生的结果不一定和字符字节数相等。
+iconv_substr	;	截取字符串的部分	;	string iconv_substr ( string $str, int $offset [, int $length = iconv_strlen($str, $charset) [, string $charset = ini_get("iconv.internal_encoding") ]] )	;	根据 offset 和 length 参数指定 str 截取的部分。
+iconv_strpos	;	Finds position of first occurrence of a needle within a haystack	;	int iconv_strpos ( string $haystack, string $needle [, int $offset = 0 [, string $charset = ini_get("iconv.internal_encoding") ]] )	;	Finds position of first occurrence of a needle within a haystack.
+iconv_strrpos	;	Finds the last occurrence of a needle within a haystack	;	int iconv_strrpos ( string $haystack, string $needle [, string $charset = ini_get("iconv.internal_encoding") ] )	;	Finds the last occurrence of a needle within a haystack.
+iconv_mime_encode	;	Composes a MIME header field	;	string iconv_mime_encode ( string $field_name, string $field_value [, array $preferences = NULL ] )	;	Composes and returns a string that represents a valid MIME header field, which looks like the following: Subject: =?ISO-8859-1?Q?Pr=FCfung_f=FCr?= Entwerfen von einer MIME kopfzeile In the above example, "Subject" is the field name and the portion that begins with "=?ISO-8859-1?..." is the field value.
+iconv_mime_decode	;	Decodes a MIME header field	;	string iconv_mime_decode ( string $encoded_header [, int $mode = 0 [, string $charset = ini_get("iconv.internal_encoding") ]] )	;	Decodes a MIME header field.
+iconv_mime_decode_headers	;	一次性解码多个 MIME 头字段	;	array iconv_mime_decode_headers ( string $encoded_headers [, int $mode = 0 [, string $charset = ini_get("iconv.internal_encoding") ]] )	;	一次性解码多个 MIME 头字段。
+json_encode	;	对变量进行 JSON 编码	;	string json_encode ( mixed $value [, int $options = 0 ] )	;	返回 value 值的 JSON 形式
+json_decode	;	对 JSON 格式的字符串进行编码	;	mixed json_decode ( string $json [, bool $assoc = false [, int $depth = 512 [, int $options = 0 ]]] )	;	接受一个 JSON 格式的字符串并且把它转换为 PHP 变量
+json_last_error	;	返回最后发生的错误	;	int json_last_error ( void )	;	如果有，返回 JSON 编码解码时最后发生的错误。
+spl_classes	;	返回所有可用的SPL类	;	array spl_classes ( void )	;	本函数返回当前所有可用的 SPL 类的数组。
+spl_autoload	;	__autoload()函数的默认实现	;	void spl_autoload ( string $class_name [, string $file_extensions ] )	;	本函数提供了__autoload()的一个默认实现。如果不使用任何参数调用 autoload_register() 函数，则以后在进行 __autoload() 调用时会自动使用此函数。
+spl_autoload_extensions	;	注册并返回spl_autoload函数使用的默认文件扩展名。	;	string spl_autoload_extensions ([ string $file_extensions ] )	;	本函数用来修改和检查 __autoload() 函数内置的默认实现函数 spl_autoload() 所使用的扩展名。
+spl_autoload_register	;	注册__autoload()函数	;	bool spl_autoload_register ([ callback $autoload_function ] )	;	将函数注册到SPL __autoload函数栈中。如果该栈中的函数尚未激活，则激活它们。
+spl_autoload_unregister	;	注销已注册的__autoload()函数	;	bool spl_autoload_unregister ( mixed $autoload_function )	;	从spl提供的自动装载函数栈中注销某一函数。如果该函数栈处于激活状态，并且在给定函数注销后该栈变为空，则该函数栈将会变为无效。
+spl_autoload_functions	;	返回所有已注册的__autoload()函数。	;	array spl_autoload_functions ( void )	;	获取所有已注册的 __autoload() 函数。
+spl_autoload_call	;	尝试调用所有已注册的__autoload()函数来装载请求类	;	void spl_autoload_call ( string $class_name )	;	可以直接在程序中手动调用此函数来使用所有已注册的__autoload函数装载类或接口。
+class_parents	;	返回指定类的父类。	;	array class_parents ( mixed $class [, bool $autoload ] )	;	本函数返回一个包含了指定类class父类名称的数组。
+class_implements	;	返回指定的类实现的所有接口。	;	array class_implements ( mixed $class [, bool $autoload ] )	;	本函数返回一个数组，该数组中包含了指定类class及其父类所实现的所有接口的名称。
+class_uses	;	Return the traits used by the given class	;	array class_uses ( mixed $class [, bool $autoload = true ] )	;	This function returns an array with the names of the traits that the given class uses. This does however not include any traits used by a parent class.
+spl_object_hash	;	返回指定对象的hash id	;	string spl_object_hash ( object $obj )	;	本函数为指定对象返回一个唯一标识符。这个标识符可用于作为保存对象或区分不同对象的hash key。
+iterator_to_array	;	将迭代器中的元素拷贝到数组	;	array iterator_to_array ( Traversable $iterator [, bool $use_keys = true ] )	;	将迭代器中的元素拷贝到数组。
+iterator_count	;	计算迭代器中元素的个数	;	int iterator_count ( Traversable $iterator )	;	计算迭代器中的元素个数。
+iterator_apply	;	为迭代器中每个元素调用一个用户自定义函数	;	int iterator_apply ( Traversable $iterator, callable $function [, array $args ] )	;	循环迭代每个元素时调用某一回调函数。
+pdo_drivers	;		;		;	
+posix_kill	;	Send a signal to a process	;	bool posix_kill ( int $pid, int $sig )	;	Send the signal sig to the process with the process identifier pid.
+posix_getpid	;	Return the current process identifier	;	int posix_getpid ( void )	;	Return the process identifier of the current process.
+posix_getppid	;	Return the parent process identifier	;	int posix_getppid ( void )	;	Return the process identifier of the parent process of the current process.
+posix_getuid	;	Return the real user ID of the current process	;	int posix_getuid ( void )	;	Return the numeric real user ID of the current process.
+posix_setuid	;	Set the UID of the current process	;	bool posix_setuid ( int $uid )	;	Set the real user ID of the current process. This is a privileged function that needs appropriate privileges (usually root) on the system to be able to perform this function.
+posix_geteuid	;	Return the effective user ID of the current process	;	int posix_geteuid ( void )	;	Return the numeric effective user ID of the current process. See also posix_getpwuid() for information on how to convert this into a useable username.
+posix_seteuid	;	Set the effective UID of the current process	;	bool posix_seteuid ( int $uid )	;	Set the real user ID of the current process. This is a privileged function and needs appropriate privileges (usually root) on the system to be able to perform this function.
+posix_getgid	;	Return the real group ID of the current process	;	int posix_getgid ( void )	;	Return the numeric real group ID of the current process.
+posix_setgid	;	Set the GID of the current process	;	bool posix_setgid ( int $gid )	;	Set the real group ID of the current process. This is a privileged function and needs appropriate privileges (usually root) on the system to be able to perform this function. The appropriate order of function calls is posix_setgid() first, posix_setuid() last.
+posix_getegid	;	Return the effective group ID of the current process	;	int posix_getegid ( void )	;	Return the numeric effective group ID of the current process.
+posix_setegid	;	Set the effective GID of the current process	;	bool posix_setegid ( int $gid )	;	Set the effective group ID of the current process. This is a privileged function and needs appropriate privileges (usually root) on the system to be able to perform this function.
+posix_getgroups	;	Return the group set of the current process	;	array posix_getgroups ( void )	;	Gets the group set of the current process.
+posix_getlogin	;	Return login name	;	string posix_getlogin ( void )	;	Returns the login name of the user owning the current process.
+posix_getpgrp	;	Return the current process group identifier	;	int posix_getpgrp ( void )	;	Return the process group identifier of the current process.
+posix_setsid	;	Make the current process a session leader	;	int posix_setsid ( void )	;	Make the current process a session leader.
+posix_setpgid	;	Set process group id for job control	;	bool posix_setpgid ( int $pid, int $pgid )	;	Let the process pid join the process group pgid.
+posix_getpgid	;	Get process group id for job control	;	int posix_getpgid ( int $pid )	;	Returns the process group identifier of the process pid 或者在失败时返回 FALSE.
+posix_getsid	;	Get the current sid of the process	;	int posix_getsid ( int $pid )	;	Return the session id of the process pid. The session id of a process is the process group id of the session leader.
+posix_uname	;	Get system name	;	array posix_uname ( void )	;	Gets information about the system.
+posix_times	;	Get process times	;	array posix_times ( void )	;	Gets information about the current CPU usage.
+posix_ctermid	;	Get path name of controlling terminal	;	string posix_ctermid ( void )	;	Generates a string which is the pathname for the current controlling terminal for the process. On error this will set errno, which can be checked using posix_get_last_error()
+posix_ttyname	;	Determine terminal device name	;	string posix_ttyname ( int $fd )	;	Returns a string for the absolute path to the current terminal device that is open on the file descriptor fd.
+posix_isatty	;	Determine if a file descriptor is an interactive terminal	;	bool posix_isatty ( int $fd )	;	Determines if the file descriptor fd refers to a valid terminal type device.
+posix_getcwd	;	Pathname of current directory	;	string posix_getcwd ( void )	;	Gets the absolute pathname of the script's current working directory. On error, it sets errno which can be checked using posix_get_last_error()
+posix_mkfifo	;	Create a fifo special file (a named pipe)	;	bool posix_mkfifo ( string $pathname, int $mode )	;	posix_mkfifo() creates a special FIFO file which exists in the file system and acts as a bidirectional communication endpoint for processes.
+posix_mknod	;	Create a special or ordinary file (POSIX.1)	;	bool posix_mknod ( string $pathname, int $mode [, int $major = 0 [, int $minor = 0 ]] )	;	Creates a special or ordinary file.
+posix_access	;	Determine accessibility of a file	;	bool posix_access ( string $file [, int $mode = POSIX_F_OK ] )	;	posix_access() checks the user's permission of a file.
+posix_getgrnam	;	Return info about a group by name	;	array posix_getgrnam ( string $name )	;	Gets information about a group provided its name.
+posix_getgrgid	;	Return info about a group by group id	;	array posix_getgrgid ( int $gid )	;	Gets information about a group provided its id.
+posix_getpwnam	;	Return info about a user by username	;	array posix_getpwnam ( string $username )	;	Returns an array of information about the given user.
+posix_getpwuid	;	Return info about a user by user id	;	array posix_getpwuid ( int $uid )	;	Returns an array of information about the user referenced by the given user ID.
+posix_getrlimit	;	Return info about system resource limits	;	array posix_getrlimit ( void )	;	posix_getrlimit() returns an array of information about the current resource's soft and hard limits.
+posix_get_last_error	;	Retrieve the error number set by the last posix function that failed	;	int posix_get_last_error ( void )	;	Retrieve the error number set by the last posix function that failed. The system error message associated with the errno may be checked with posix_strerror() .
+posix_errno	;	别名  posix_get_last_error()	;		;	
+posix_strerror	;	Retrieve the system error message associated with the given errno	;	string posix_strerror ( int $errno )	;	Returns the POSIX system error message associated with the given errno. You may get the errno parameter by calling posix_get_last_error() .
+posix_initgroups	;	Calculate the group access list	;	bool posix_initgroups ( string $name, int $base_group_id )	;	Calculates the group access list for the user specified in name.
+session_name	;	Get and/or set the current session name	;	string session_name ([ string $name ] )	;	session_name() returns the name of the current session. If name is given, session_name() will update the session name and return the old session name.
+session_module_name	;	Get and/or set the current session module	;	string session_module_name ([ string $module ] )	;	session_module_name() gets the name of the current session module.
+session_save_path	;	Get and/or set the current session save path	;	string session_save_path ([ string $path ] )	;	session_save_path() returns the path of the current directory used to save session data.
+session_id	;	Get and/or set the current session id	;	string session_id ([ string $id ] )	;	session_id() is used to get or set the session id for the current session.
+session_regenerate_id	;	Update the current session id with a newly generated one	;	bool session_regenerate_id ([ bool $delete_old_session = false ] )	;	session_regenerate_id() will replace the current session id with a new one, and keep the current session information.
+session_decode	;	Decodes session data from a session encoded string	;	bool session_decode ( string $data )	;	session_decode() decodes the serialized session data provided in $data, and populates the $_SESSION superglobal with the result.
+session_encode	;	将当前会话数据编码为一个字符串	;	string session_encode ( void )	;	session_encode() 返回一个序列化后的字符串，包含被编码的、储存于 $_SESSION 超全局变量中的当前会话数据。
+session_start	;	Start new or resume existing session	;	bool session_start ( void )	;	session_start() creates a session or resumes the current one based on a session identifier passed via a GET or POST request, or passed via a cookie.
+session_destroy	;	Destroys all data registered to a session	;	bool session_destroy ( void )	;	
+session_unset	;	Free all session variables	;	void session_unset ( void )	;	The session_unset() function frees all session variables currently registered.
+session_set_save_handler	;	Sets user-level session storage functions	;	bool session_set_save_handler ( SessionHandlerInterface $sessionhandler [, bool $register_shutdown = true ] )	;	session_set_save_handler() sets the user-level session storage functions which are used for storing and retrieving data associated with a session. This is most useful when a storage method other than those supplied by PHP sessions is preferred. i.e. Storing the session data in a local database.
+session_cache_limiter	;	Get and/or set the current cache limiter	;	string session_cache_limiter ([ string $cache_limiter ] )	;	session_cache_limiter() returns the name of the current cache limiter.
+session_cache_expire	;	Return current cache expire	;	int session_cache_expire ([ string $new_cache_expire ] )	;	session_cache_expire() returns the current setting of session.cache_expire.
+session_set_cookie_params	;	Set the session cookie parameters	;	void session_set_cookie_params ( int $lifetime [, string $path [, string $domain [, bool $secure = false [, bool $httponly = false ]]]] )	;	Set cookie parameters defined in the php.ini file. The effect of this function only lasts for the duration of the script. Thus, you need to call session_set_cookie_params() for every request and before session_start() is called.
+session_get_cookie_params	;	Get the session cookie parameters	;	array session_get_cookie_params ( void )	;	Gets the session cookie parameters.
+session_write_close	;	Write session data and end session	;	void session_write_close ( void )	;	End the current session and store session data.
+session_status	;	Returns the current session status	;	int session_status ( void )	;	session_status() is used to return the current session status.
+session_register_shutdown	;	Session shutdown function	;	void session_register_shutdown ( void )	;	Registers session_write_close() as a shutdown function.
+session_commit	;	session_write_close()  的别名	;		;	
+simplexml_load_file	;	Interprets an XML file into an object	;	SimpleXMLElement simplexml_load_file ( string $filename [, string $class_name = "SimpleXMLElement" [, int $options = 0 [, string $ns = "" [, bool $is_prefix = false ]]]] )	;	Convert the well-formed XML document in the given file to an object.
+simplexml_load_string	;	Interprets a string of XML into an object	;	SimpleXMLElement simplexml_load_string ( string $data [, string $class_name = "SimpleXMLElement" [, int $options = 0 [, string $ns = "" [, bool $is_prefix = false ]]]] )	;	Takes a well-formed XML string and returns it as an object.
+simplexml_import_dom	;	Get a SimpleXMLElement object from a DOM node.	;	SimpleXMLElement simplexml_import_dom ( DOMNode $node [, string $class_name = "SimpleXMLElement" ] )	;	This function takes a node of a DOM document and makes it into a SimpleXML node. This new object can then be used as a native SimpleXML element.
+constant	;	返回一个常量的值	;	mixed constant ( string $name )	;	
+bin2hex	;	将二进制数据转换成十六进制表示	;	string bin2hex ( string $str )	;	返回 ASCII 字符串，为参数 str 的十六进制表示。转换使用字节方式，高四位字节优先。
+hex2bin	;	Decodes a hexadecimally encoded binary string	;	string hex2bin ( string $data )	;	Decodes a hexadecimally encoded binary string.
+sleep	;	延缓执行	;	int sleep ( int $seconds )	;	
+usleep	;	以指定的微秒数延迟执行	;	void usleep ( int $micro_seconds )	;	以指定的微秒数延缓程序的执行。
+time_nanosleep	;	延缓执行若干秒和纳秒	;	mixed time_nanosleep ( int $seconds, int $nanoseconds )	;	程序延缓执行指定数量的 seconds 和 nanoseconds。
+time_sleep_until	;	使脚本睡眠到指定的时间为止。	;	bool time_sleep_until ( float $timestamp )	;	使脚本睡眠到指定的 timestamp。
+strptime	;	解析由  strftime()  生成的日期／时间	;	array strptime ( string $date, string $format )	;	strptime() 返回一个将 date 解析后的数组，如果出错返回 FALSE。
+flush	;	刷新输出缓冲	;	void flush ( void )	;	
+wordwrap	;	打断字符串为指定数量的字串	;	string wordwrap ( string $str [, int $width = 75 [, string $break = "\n" [, bool $cut = false ]]] )	;	使用字符串断点将字符串打断为指定数量的字串。
+htmlspecialchars	;	Convert special characters to HTML entities	;	string htmlspecialchars ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = 'UTF-8' [, bool $double_encode = true ]]] )	;	Certain characters have special significance in HTML, and should be represented by HTML entities if they are to preserve their meanings. This function returns a string with these conversions made. If you require all input substrings that have associated named entities to be translated, use htmlentities() instead.
+htmlentities	;	Convert all applicable characters to HTML entities	;	string htmlentities ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = 'UTF-8' [, bool $double_encode = true ]]] )	;	This function is identical to htmlspecialchars() in all ways, except with htmlentities() , all characters which have HTML character entity equivalents are translated into these entities.
+html_entity_decode	;	Convert all HTML entities to their applicable characters	;	string html_entity_decode ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = 'UTF-8' ]] )	;	html_entity_decode() is the opposite of htmlentities() in that it converts all HTML entities in the string to their applicable characters.
+htmlspecialchars_decode	;	将特殊的 HTML 实体转换回普通字符	;	string htmlspecialchars_decode ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 ] )	;	此函数的作用和 htmlspecialchars() 刚好相反。它将特殊的HTML实体转换回普通字符。
+get_html_translation_table	;	返回使用  htmlspecialchars()  和  htmlentities()  后的转换表	;	array get_html_translation_table ([ int $table = HTML_SPECIALCHARS [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = 'UTF-8' ]]] )	;	get_html_translation_table() 将返回 htmlspecialchars() 和 htmlentities() 处理后的转换表。
+sha1	;	计算字符串的 sha1 散列值	;	string sha1 ( string $str [, bool $raw_output = false ] )	;	
+sha1_file	;	计算文件的 sha1 散列值	;	string sha1_file ( string $filename [, bool $raw_output = false ] )	;	
+md5	;	计算字符串的 MD5 散列值	;	string md5 ( string $str [, bool $raw_output = false ] )	;	使用 &raquo;&nbsp;RSA 数据安全公司的 MD5 报文算法计算 str 的 MD5 散列值。
+md5_file	;	计算指定文件的 MD5 散列值	;	string md5_file ( string $filename [, bool $raw_output = false ] )	;	使用 &raquo;&nbsp;RSA 数据安全公司的 MD5 报文算法计算 filename 文件的 MD5 散列值并返回。该散列值为 32 字符的十六进制数字。
+crc32	;	计算一个字符串的 crc32 多项式	;	int crc32 ( string $str )	;	生成 str 的 32 位循环冗余校验码多项式。这通常用于检查传输的数据是否完整。
+iptcparse	;	将二进制 IPTC 块解析为单个标记	;	array iptcparse ( string $iptcblock )	;	本函数将一个二进制的 &raquo;&nbsp;IPTC 块解析为单个的标记。
+iptcembed	;	将二进制 IPTC 数据嵌入到一幅 JPEG 图像中	;	mixed iptcembed ( string $iptcdata, string $jpeg_file_name [, int $spool ] )	;	Embeds binary IPTC data into a JPEG image.
+getimagesize	;	取得图像大小	;	array getimagesize ( string $filename [, array &$imageinfo ] )	;	getimagesize() 函数将测定任何 GIF，JPG，PNG，SWF，SWC，PSD，TIFF，BMP，IFF，JP2，JPX，JB2，JPC，XBM 或 WBMP 图像文件的大小并返回图像的尺寸以及文件类型和一个可以用于普通 HTML 文件中 IMG 标记中的 height/width 文本字符串。
+getimagesizefromstring	;	Get the size of an image from a string	;	array getimagesizefromstring ( string $imagedata [, array &$imageinfo ] )	;	Identical to getimagesize() except that getimagesizefromstring() accepts a string instead of a file name as the first parameter.
+image_type_to_mime_type	;	取得 getimagesize，exif_read_data，exif_thumbnail，exif_imagetype     所返回的图像类型的 MIME 类型	;	string image_type_to_mime_type ( int $imagetype )	;	image_type_to_mime_type() 函数可以判断一个 IMAGETYPE 常量的 MIME 类型。 Example #1 image_type_to_mime_type (file) <span style="color: #000000"> <span style="color: #0000BB"><?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-type:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">image_type_to_mime_type</span><span style="color: #007700">(</span><span style="color: #0000BB">IMAGETYPE_PNG</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?></span> </span>
+image_type_to_extension	;	取得图像类型的文件后缀	;	string image_type_to_extension ( int $imagetype [, bool $include_dot = TRUE ] )	;	根据给定的常量 IMAGETYPE_XXX 返回后缀名。
+phpinfo	;	输出关于 PHP 配置的信息	;	bool phpinfo ([ int $what = INFO_ALL ] )	;	输出 PHP 当前状态的大量信息，包含了 PHP 编译选项、启用的扩展、PHP 版本、服务器信息和环境变量（如果编译为一个模块的话）、PHP环境变量、操作系统版本信息、path 变量、配置选项的本地值和主值、HTTP 头和PHP授权信息(License)。
+phpversion	;	获取当前的PHP版本	;	string phpversion ([ string $extension ] )	;	返回了包含当前运行 PHP 解释器或扩展版本信息的 string。
+phpcredits	;	打印 PHP 贡献者名单	;	bool phpcredits ([ int $flag = CREDITS_ALL ] )	;	这个函数打印出了 PHP 开发者、模块等贡献者名单。 它生成了合适、可嵌入信息到页面中的 HTML 代码。
+php_logo_guid	;	获取 logo 的 guid	;	string php_logo_guid ( void )	;	此函数能够返回用于显示 PHP logo 内置图像的 ID。 图像仅在 expose_php 启用时显示。
+zend_logo_guid	;	获取 Zend guid	;	string zend_logo_guid ( void )	;	该函数返回了一个 ID，能够使用内置的图像来显示 Zend logo。
+php_sapi_name	;	返回 web 服务器和 PHP 之间的接口类型	;	string php_sapi_name ( void )	;	
+php_uname	;	返回运行 PHP 的系统的有关信息	;	string php_uname ([ string $mode = "a" ] )	;	php_uname() 返回了运行 PHP 的操作系统的描述。 这和 phpinfo() 最顶端上输出的是同一个字符串。 如果仅仅要获取操作系统的名称。可以考虑使用常量 PHP_OS，不过要注意该常量会包含 PHP 构建（built）时的操作系统名。
+php_ini_scanned_files	;	返回从额外 ini 目录里解析的 .ini 文件列表	;	string php_ini_scanned_files ( void )	;	php_ini_scanned_files() 返回解析的 php.ini 后逗号分隔的配置文件列表。 这些文件从编译时 --with-config-file-scan-dir 选项里指定的目录里找到。
+php_ini_loaded_file	;	取得已加载的 php.ini 文件的路径	;	string php_ini_loaded_file ( void )	;	检查是否有加载的 php.ini 文件，并取回它的路径。
+strnatcmp	;	使用自然排序算法比较字符串	;	int strnatcmp ( string $str1, string $str2 )	;	该函数实现了以人类习惯对数字型字符串进行排序的比较算法，这就是“自然顺序”。注意该比较区分大小写。
+strnatcasecmp	;	使用“自然顺序”算法比较字符串（不区分大小写）	;	int strnatcasecmp ( string $str1, string $str2 )	;	该函数实现了以人类习惯对数字型字符串进行排序的比较算法。除了不区分大小写，该函数的行为与 strnatcmp() 类似。更多信息，参见：Martin Pool 的&raquo;&nbsp;自然顺序的字符串比较页面。
+substr_count	;	计算字串出现的次数	;	int substr_count ( string $haystack, string $needle [, int $offset = 0 [, int $length ]] )	;	substr_count() 返回子字符串needle 在字符串 haystack 中出现的次数。注意 needle 区分大小写。
+strspn	;	计算字符串中全部字符都存在于指定字符集合中的第一段子串的长度。	;	int strspn ( string $subject, string $mask [, int $start [, int $length ]] )	;	返回 subject 中全部字符仅存在于 mask 中的第一组连续字符(子字符串)的长度。
+strcspn	;	获取不匹配遮罩的起始子字符串的长度	;	int strcspn ( string $str1, string $str2 [, int $start [, int $length ]] )	;	返回 str1 中，所有字符都不存在于 str2 范围的起始子字符串的长度。
+strtok	;	标记分割字符串	;	string strtok ( string $token )	;	strtok() 将字符串 str 分割为若干子字符串，每个子字符串以 token 中的字符分割。这也就意味着，如果有个字符串是 "This is an example string"，你可以使用空格字符将这句话分割成独立的单词。
+strtoupper	;	将字符串转化为大写	;	string strtoupper ( string $string )	;	将 string 中所有的字母字符转换为大写并返回。
+strtolower	;	将字符串转化为小写	;	string strtolower ( string $str )	;	将 string 中所有的字母字符转换为小写并返回。
+strpos	;	查找字符串首次出现的位置	;	int strpos ( string $haystack, mixed $needle [, int $offset = 0 ] )	;	返回 needle 在 haystack 中首次出现的数字位置。与 strrpos() 不同，在 PHP 5 之前，该函数可以使用一个完整字符串作为 needle，并且整个字符串都将被使用。
+stripos	;	查找字符串首次出现的位置（不区分大小写）	;	int stripos ( string $haystack, string $needle [, int $offset = 0 ] )	;	返回在字符串 haystack 中 needle 首次出现的数字位置。
+strrpos	;	计算指定字符串在目标字符串中最后一次出现的位置	;	int strrpos ( string $haystack, string $needle [, int $offset = 0 ] )	;	返回字符串 haystack 中 needle 最后一次出现的数字位置。注意 PHP4 中，needle 只能为单个字符。如果 needle 被指定为一个字符串，那么将仅使用第一个字符。
+strripos	;	计算指定字符串在目标字符串中最后一次出现的位置（不区分大小写）	;	int strripos ( string $haystack, string $needle [, int $offset = 0 ] )	;	以不区分大小写的方式查找指定字符串在目标字符串中最后一次出现的位置。与 strrpos() 不同， strripos() 不区分大小写。
+strrev	;	反转字符串	;	string strrev ( string $string )	;	返回 string 反转后的字符串。
+hebrev	;	将逻辑顺序希伯来文（logical-Hebrew）转换为视觉顺序希伯来文（visual-Hebrew）	;	string hebrev ( string $hebrew_text [, int $max_chars_per_line = 0 ] )	;	将逻辑顺序希伯来文（logical-Hebrew）转换为视觉顺序希伯来文（visual-Hebrew）
+hebrevc	;	将逻辑顺序希伯来文（logical-Hebrew）转换为视觉顺序希伯来文（visual-Hebrew），并且转换换行符	;	string hebrevc ( string $hebrew_text [, int $max_chars_per_line = 0 ] )	;	本函数与 hebrev() 一样，唯一的区别是 本函数会额外将换行符(\n)转换为"<br>\n"。
+nl2br	;	在字符串所有新行之前插入 HTML 换行标记	;	string nl2br ( string $string [, bool $is_xhtml = true ] )	;	在字符串 string 所有新行之前插入 '<br />' 或 '<br>'，并返回。
+basename	;	返回路径中的文件名部分	;	string basename ( string $path [, string $suffix ] )	;	给出一个包含有指向一个文件的全路径的字符串，本函数返回基本的文件名。
+dirname	;	返回路径中的目录部分	;	string dirname ( string $path )	;	给出一个包含有指向一个文件的全路径的字符串，本函数返回去掉文件名后的目录名。
+pathinfo	;	返回文件路径的信息	;	mixed pathinfo ( string $path [, int $options = PATHINFO_DIRNAME | PATHINFO_BASENAME | PATHINFO_EXTENSION | PATHINFO_FILENAME ] )	;	pathinfo() 返回一个关联数组包含有 path 的信息。返回关联数组还是字符串取决于 options。
+stripslashes	;	反引用一个引用字符串	;	string stripslashes ( string $str )	;	反引用一个引用字符串。
+stripcslashes	;	反引用一个使用  addcslashes()  转义的字符串	;	string stripcslashes ( string $str )	;	返回反转义后的字符串。可识别类似 C 语言的 \n，\r，... 八进制以及十六进制的描述。
+strstr	;	查找字符串的首次出现	;	string strstr ( string $haystack, mixed $needle [, bool $before_needle = false ] )	;	返回 haystack 字符串从 needle 第一次出现的位置开始到 haystack 结尾的字符串。
+stristr	;	strstr()  函数的忽略大小写版本	;	string stristr ( string $haystack, mixed $needle [, bool $before_needle = false ] )	;	返回 haystack 字符串从 needle 第一次出现的位置开始到 haystack 结尾的字符串。
+strrchr	;	查找指定字符在字符串中的最后一次出现	;	string strrchr ( string $haystack, mixed $needle )	;	该函数返回 haystack 字符串中的一部分，这部分以 needle 的最后出现位置开始，直到 haystack 末尾。
+str_shuffle	;	随机打乱一个字符串	;	string str_shuffle ( string $str )	;	
+str_word_count	;	返回字符串中单词的使用情况	;	mixed str_word_count ( string $string [, int $format = 0 [, string $charlist ]] )	;	统计 string 中单词的数量。如果可选的参数 format 没有被指定，那么返回值是一个代表单词数量的整型数。如果指定了 format 参数，返回值将是一个数组，数组的内容则取决于 format 参数。format 的可能值和相应的输出结果如下所列。
+str_split	;	将字符串转换为数组	;	array str_split ( string $string [, int $split_length = 1 ] )	;	将一个字符串转换为数组。
+strpbrk	;	在字符串中查找一组字符的任何一个字符	;	string strpbrk ( string $haystack, string $char_list )	;	strpbrk() 函数在 haystack 字符串中查找 char_list 中的字符。
+substr_compare	;	二进制安全比较字符串（从偏移位置比较指定长度）	;	int substr_compare ( string $main_str, string $str, int $offset [, int $length [, bool $case_insensitivity = false ]] )	;	substr_compare() 从偏移位置 offset 开始比较 main_str 与 str，比较长度为 length 个字符。
+strcoll	;	基于区域设置的字符串比较	;	int strcoll ( string $str1, string $str2 )	;	注意该比较区分大小写。和 strcmp() 不同，该函数不是二进制安全的。
+money_format	;	Formats a number as a currency string	;	string money_format ( string $format, float $number )	;	money_format() returns a formatted version of number. This function wraps the C library function strfmon() , with the difference that this implementation converts only one number at a time.
+substr	;	返回字符串的子串	;	string substr ( string $string, int $start [, int $length ] )	;	返回字符串 string 由 start 和 length 参数指定的子字符串。
+substr_replace	;	替换字符串的子串	;	mixed substr_replace ( mixed $string, mixed $replacement, mixed $start [, mixed $length ] )	;	substr_replace() 在字符串 string 的副本中将由 start 和可选的 length 参数限定的子字符串使用 replacement 进行替换。
+quotemeta	;	Quote meta characters	;	string quotemeta ( string $str )	;	Returns a version of str with a backslash character (\) before every character that is among these: . \ + * ? [ ^ ] ( $ )
+ucfirst	;	将字符串的首字母转换为大写	;	string ucfirst ( string $str )	;	将 str 的首字符（如果首字符是字母）转换为大写字母，并返回这个字符串。
+lcfirst	;	使一个字符串的第一个字符小写	;	string lcfirst ( string $str )	;	返回str的第一个字符小写了的字符串。如果str的第一个字符是字母，则将其转换为小写。
+ucwords	;	将字符串中每个单词的首字母转换为大写	;	string ucwords ( string $str )	;	将 str 中每个单词的首字符（如果首字符是字母）转换为大写字母，并返回这个字符串。
+strtr	;	转换指定字符	;	string strtr ( string $str, array $replace_pairs )	;	该函数返回 str 的一个副本，并将在 from 中指定的字符转换为 to 中相应的字符。
+addslashes	;	使用反斜线引用字符串	;	string addslashes ( string $str )	;	返回字符串，该字符串为了数据库查询语句等的需要在某些字符前加上了反斜线。这些字符是单引号（'）、双引号（"）、反斜线（\）与 NUL（NULL 字符）。
+addcslashes	;	以 C 语言风格使用反斜线转义字符串中的字符	;	string addcslashes ( string $str, string $charlist )	;	返回字符串，该字符串在属于参数 charlist 列表中的字符前都加上了反斜线。
+rtrim	;	删除字符串末端的空白字符（或者其他字符）	;	string rtrim ( string $str [, string $charlist ] )	;	该函数删除 str 末端的空白字符并返回。
+str_replace	;	子字符串替换	;	mixed str_replace ( mixed $search, mixed $replace, mixed $subject [, int &$count ] )	;	该函数返回一个字符串或者数组。该字符串或数组是将 subject 中全部的 search 都被 replace 替换之后的结果。
+str_ireplace	;	str_replace()  的忽略大小写版本	;	mixed str_ireplace ( mixed $search, mixed $replace, mixed $subject [, int &$count ] )	;	该函数返回一个字符串或者数组。该字符串或数组是将 subject 中全部的 search 都被 replace 替换（忽略大小写）之后的结果。如果没有一些特殊的替换规则，你应该使用该函数替换带有 i 修正符的 preg_replace() 函数。
+str_repeat	;	重复一个字符串	;	string str_repeat ( string $input, int $multiplier )	;	返回 input 重复 multiplier 次后的结果。
+count_chars	;	返回字符串所用字符的信息	;	mixed count_chars ( string $string [, int $mode = 0 ] )	;	统计 string 中每个字节值（0..255）出现的次数，使用多种模式返回结果。
+chunk_split	;	将字符串分割成小块	;	string chunk_split ( string $body [, int $chunklen = 76 [, string $end = "\r\n" ]] )	;	使用此函数将字符串分割成小块非常有用。例如将 base64_encode() 的输出转换成符合 RFC 2045 语义的字符串。它会在每 chunklen 个字符后边插入 end。
+trim	;	去除字符串首尾处的空白字符（或者其他字符）	;	string trim ( string $str [, string $charlist ] )	;	此函数返回字符串 str 去除首尾空白字符后的结果。如果不指定第二个参数， trim() 将去除这些字符： " " (ASCII 32 (0x20))，普通空格符。 "\t" (ASCII 9 (0x09))，制表符。 "\n" (ASCII 10 (0x0A))，换行符。 "\r" (ASCII 13 (0x0D))，回车符。 "\0" (ASCII 0 (0x00))，空字节符。 "\x0B" (ASCII 11 (0x0B))，垂直制表符。
+ltrim	;	删除字符串开头的空白字符（或其他字符）	;	string ltrim ( string $str [, string $charlist ] )	;	删除字符串开头的空白字符（或其他字符）
+strip_tags	;	从字符串中去除 HTML 和 PHP 标记	;	string strip_tags ( string $str [, string $allowable_tags ] )	;	该函数尝试返回给定的字符串 str 去除空字符、HTML 和 PHP 标记后的结果。它使用与函数 fgetss() 一样的标记去除状态机。
+similar_text	;	计算两个字符串的相似度	;	int similar_text ( string $first, string $second [, float &$percent ] )	;	两个字符串的相似程度计算依据 Oliver [1993] 的描述进行。注意该实现没有使用 Oliver 虚拟码中的堆栈，但是却进行了递归调用，这个做法可能会导致整个过程变慢或变快。也请注意，该算法的复杂度是 O(N**3)，N 是最长字符串的长度。
+explode	;	使用一个字符串分割另一个字符串	;	array explode ( string $delimiter, string $string [, int $limit ] )	;	此函数返回由字符串组成的数组，每个元素都是 string 的一个子串，它们被字符串 delimiter 作为边界点分割出来。
+implode	;	Join array elements with a string	;	string implode ( array $pieces )	;	Join array elements with a glue string.
+join	;	别名  implode()	;		;	
+setlocale	;	Set locale information	;	string setlocale ( int $category, array $locale )	;	Sets locale information.
+localeconv	;	Get numeric formatting information	;	array localeconv ( void )	;	Returns an associative array containing localized numeric and monetary formatting information.
+nl_langinfo	;	Query language and locale information	;	string nl_langinfo ( int $item )	;	nl_langinfo() is used to access individual elements of the locale categories. Unlike localeconv() , which returns all of the elements, nl_langinfo() allows you to select any specific element.
+soundex	;	Calculate the soundex key of a string	;	string soundex ( string $str )	;	Calculates the soundex key of str.
+levenshtein	;	计算两个字符串之间的编辑距离	;	int levenshtein ( string $str1, string $str2, int $cost_ins, int $cost_rep, int $cost_del )	;	编辑距离，是指两个字串之间，通过替换、插入、删除等操作将字符串str1转换成str2所需要操作的最少字符数量。 该算法的复杂度是 O(m*n)，其中 n 和 m 分别是str1 和str2的长度 （当和算法复杂度为O(max(n,m)**3)的 similar_text() 相比时，此函数还是相当不错的，尽管仍然很耗时。）。
+chr	;	返回指定的字符	;	string chr ( int $ascii )	;	返回相对应于 ascii 所指定的单个字符。
+ord	;	返回字符的 ASCII 码值	;	int ord ( string $string )	;	返回字符串 string 第一个字符的 ASCII 码值。
+parse_str	;	将字符串解析成多个变量	;	void parse_str ( string $str [, array &$arr ] )	;	如果 str 是 URL 传递入的查询字符串（query string），则将它解析为变量并设置到当前作用域。
+str_getcsv	;	解析 CSV 字符串为一个数组	;	array str_getcsv ( string $input [, string $delimiter = ',' [, string $enclosure = '"' [, string $escape = '\\' ]]] )	;	与 fgetcsv() 类似，该函数解析一个输入字符串，而非像 fgetcsv() 那样以文件作为它的输入。
+str_pad	;	使用另一个字符串填充字符串为指定长度	;	string str_pad ( string $input, int $pad_length [, string $pad_string = " " [, int $pad_type = STR_PAD_RIGHT ]] )	;	该函数返回 input 被从左端、右端或者同时两端被填充到制定长度后的结果。如果可选的 pad_string 参数没有被指定，input 将被空格字符填充，否则它将被 pad_string 填充到指定长度。
+chop	;	rtrim()  的别名	;		;	
+strchr	;	别名  strstr()	;		;	
+sprintf	;	Return a formatted string	;	string sprintf ( string $format [, mixed $args [, mixed $... ]] )	;	Returns a string produced according to the formatting string format.
+printf	;	输出格式化字符串	;	int printf ( string $format [, mixed $args [, mixed $... ]] )	;	
+vprintf	;	输出格式化字符串	;	int vprintf ( string $format, array $args )	;	根据 format （ sprintf() 函数文档中有相关描述）参数指定的格式，在一个格式化字符串中显示多个值。
+vsprintf	;	返回格式化字符串	;	string vsprintf ( string $format, array $args )	;	作用与 sprintf() 函数类似，但是接收一个数组参数，而不是一系列可变数量的参数。
+fprintf	;	将格式化后的字符串写入到流	;	int fprintf ( resource $handle, string $format [, mixed $args [, mixed $... ]] )	;	写入一个根据 format 格式化后的字符串到 由 handle 句柄打开的流中。
+vfprintf	;	将格式化字符串写入流	;	int vfprintf ( resource $handle, string $format, array $args )	;	向由 handle 指定的流资源句柄中写入根据 format 格式化后的字符串。
+sscanf	;	Parses input from a string according to a format	;	mixed sscanf ( string $str, string $format [, mixed &$... ] )	;	The function sscanf() is the input analog of printf() . sscanf() reads from the string str and interprets it according to the specified format, which is described in the documentation for sprintf() .
+fscanf	;	从文件中格式化输入	;	mixed fscanf ( resource $handle, string $format [, mixed &$... ] )	;	fscanf() 函数和 sscanf() 相似，但是它从与 handle 关联的文件中接受输入并根据指定的 format（定义于 sprintf() 的文档中）来解释输入。
+parse_url	;	解析 URL，返回其组成部分	;	mixed parse_url ( string $url [, int $component = -1 ] )	;	本函数解析一个 URL 并返回一个关联数组，包含在 URL 中出现的各种组成部分。
+urlencode	;	编码 URL 字符串	;	string urlencode ( string $str )	;	此函数便于将字符串编码并将其用于 URL 的请求部分，同时它还便于将变量传递给下一页。
+urldecode	;	解码已编码的 URL 字符串	;	string urldecode ( string $str )	;	解码给出的已编码字符串中的任何 %## 。 加号（'+'）被解码成一个空格字符。
+rawurlencode	;	按照 RFC 1738 对 URL 进行编码	;	string rawurlencode ( string $str )	;	根据 &raquo;&nbsp;RFC 3986 编码指定的字符。
+rawurldecode	;	对已编码的 URL 字符串进行解码	;	string rawurldecode ( string $str )	;	返回字符串，此字符串中百分号（%）后跟两位十六进制数的序列都将被替换成原义字符。
+http_build_query	;	生成 URL-encode 之后的请求字符串	;	string http_build_query ( mixed $query_data [, string $numeric_prefix [, string $arg_separator [, int $enc_type = PHP_QUERY_RFC1738 ]]] )	;	使用给出的关联（或下标）数组生成一个经过 URL-encode 的请求字符串。
+readlink	;	返回符号连接指向的目标	;	string readlink ( string $path )	;	readlink() 和同名的 C 函数做同样的事，返回符号连接的内容。
+linkinfo	;	获取一个连接的信息	;	int linkinfo ( string $path )	;	获取一个连接的信息。
+symlink	;	建立符号连接	;	bool symlink ( string $target, string $link )	;	symlink() 对于已有的 target 建立一个名为 link 的符号连接。
+link	;	建立一个硬连接	;	bool link ( string $target, string $link )	;	link() 建立一个硬连接。
+unlink	;	删除文件	;	bool unlink ( string $filename [, resource $context ] )	;	删除 filename。和 Unix C 的 unlink() 函数相似。 发生错误时会产生一个 E_WARNING 级别的错误。
+exec	;	Execute an external program	;	string exec ( string $command [, array &$output [, int &$return_var ]] )	;	exec() executes the given command.
+system	;	Execute an external program and display the output	;	string system ( string $command [, int &$return_var ] )	;	system() is just like the C version of the function in that it executes the given command and outputs the result.
+escapeshellcmd	;	Escape shell metacharacters	;	string escapeshellcmd ( string $command )	;	escapeshellcmd() escapes any characters in a string that might be used to trick a shell command into executing arbitrary commands. This function should be used to make sure that any data coming from user input is escaped before this data is passed to the exec() or system() functions, or to the backtick operator.
+escapeshellarg	;	Escape a string to be used as a shell argument	;	string escapeshellarg ( string $arg )	;	escapeshellarg() adds single quotes around a string and quotes/escapes any existing single quotes allowing you to pass a string directly to a shell function and having it be treated as a single safe argument. This function should be used to escape individual arguments to shell functions coming from user input. The shell functions include exec() , system() and the backtick operator.
+passthru	;	Execute an external program and display raw output	;	void passthru ( string $command [, int &$return_var ] )	;	The passthru() function is similar to the exec() function in that it executes a command. This function should be used in place of exec() or system() when the output from the Unix command is binary data which needs to be passed directly back to the browser. A common use for this is to execute something like the pbmplus utilities that can output an image stream directly. By setting the Content-type to image/gif and then calling a pbmplus program to output a gif, you can create PHP scripts that output images directly.
+shell_exec	;	Execute command via shell and return the complete output as a string	;	string shell_exec ( string $cmd )	;	This function is identical to the backtick operator.
+proc_open	;	Execute a command and open file pointers for input/output	;	resource proc_open ( string $cmd, array $descriptorspec, array &$pipes [, string $cwd [, array $env [, array $other_options ]]] )	;	proc_open() is similar to popen() but provides a much greater degree of control over the program execution.
+proc_close	;	Close a process opened by  proc_open()  and return the exit code of that process	;	int proc_close ( resource $process )	;	proc_close() is similar to pclose() except that it only works on processes opened by proc_open() . proc_close() waits for the process to terminate, and returns its exit code. If you have open pipes to that process, you should fclose() them prior to calling this function in order to avoid a deadlock - the child process may not be able to exit while the pipes are open.
+proc_terminate	;	Kills a process opened by proc_open	;	bool proc_terminate ( resource $process [, int $signal = 15 ] )	;	Signals a process (created using proc_open() ) that it should terminate. proc_terminate() returns immediately and does not wait for the process to terminate.
+proc_get_status	;	Get information about a process opened by  proc_open()	;	array proc_get_status ( resource $process )	;	proc_get_status() fetches data about a process opened using proc_open() .
+proc_nice	;	Change the priority of the current process	;	bool proc_nice ( int $increment )	;	proc_nice() changes the priority of the current process by the amount specified in increment. A positive increment will lower the priority of the current process, whereas a negative increment will raise the priority.
+rand	;	产生一个随机整数	;	int rand ( int $min, int $max )	;	
+srand	;	播下随机数发生器种子	;	void srand ([ int $seed ] )	;	用 seed 播下随机数发生器种子。seed 参数没有给出时，会被设为随时数。
+getrandmax	;	显示随机数最大的可能值	;	int getrandmax ( void )	;	
+mt_rand	;	生成更好的随机数	;	int mt_rand ( int $min, int $max )	;	
+mt_srand	;	播下一个更好的随机数发生器种子	;	void mt_srand ([ int $seed ] )	;	用 seed 来给随机数发生器播种。 没有设定 seed 参数时，会被设为随时数。
+mt_getrandmax	;	显示随机数的最大可能值	;	int mt_getrandmax ( void )	;	
+getservbyname	;	Get port number associated with an Internet service and protocol	;	int getservbyname ( string $service, string $protocol )	;	getservbyname() returns the Internet port which corresponds to service for the specified protocol as per /etc/services.
+getservbyport	;	Get Internet service which corresponds to port and protocol	;	string getservbyport ( int $port, string $protocol )	;	getservbyport() returns the Internet service associated with port for the specified protocol as per /etc/services.
+getprotobyname	;	Get protocol number associated with protocol name	;	int getprotobyname ( string $name )	;	getprotobyname() returns the protocol number associated with the protocol name as per /etc/protocols.
+getprotobynumber	;	Get protocol name associated with protocol number	;	string getprotobynumber ( int $number )	;	getprotobynumber() returns the protocol name associated with protocol number as per /etc/protocols.
+getmyuid	;	获取 PHP 脚本所有者的 UID	;	int getmyuid ( void )	;	
+getmygid	;	获取当前 PHP 脚本拥有者的 GID	;	int getmygid ( void )	;	
+getmypid	;	获取 PHP 进程的 ID	;	int getmypid ( void )	;	获取当前 PHP 进程 ID。
+getmyinode	;	获取当前脚本的索引节点（inode）	;	int getmyinode ( void )	;	获取当前脚本的索引节点（inode）。
+getlastmod	;	获取页面最后修改的时间	;	int getlastmod ( void )	;	获取当前页面最后修改的时间。
+base64_decode	;	对使用 MIME base64 编码的数据进行解码	;	string base64_decode ( string $data [, bool $strict = false ] )	;	对 base64 编码的 data 进行解码。
+base64_encode	;	使用 MIME base64 对数据进行编码	;	string base64_encode ( string $data )	;	使用 base64 对 data 进行编码。
+convert_uuencode	;	使用 uuencode 编码一个字符串	;	string convert_uuencode ( string $data )	;	convert_uuencode() 使用 uuencode 算法对一个字符串进行编码。
+convert_uudecode	;	解码一个 uuencode 编码的字符串	;	string convert_uudecode ( string $data )	;	convert_uudecode() 解码一个 uuencode 编码的字符串。
+abs	;	绝对值	;	number abs ( mixed $number )	;	返回参数 number 的绝对值。
+ceil	;	进一法取整	;	float ceil ( float $value )	;	
+floor	;	舍去法取整	;	float floor ( float $value )	;	
+round	;	对浮点数进行四舍五入	;	float round ( float $val [, int $precision = 0 [, int $mode = PHP_ROUND_HALF_UP ]] )	;	返回将 val 根据指定精度 precision（十进制小数点后数字的数目）进行四舍五入的结果。precision 也可以是负数或零（默认值）。
+sin	;	正弦	;	float sin ( float $arg )	;	sin() 返回参数 arg 的正弦值。参数 arg 的单位为弧度。
+cos	;	余弦	;	float cos ( float $arg )	;	cos() 返回参数 arg 的余弦值。参数 arg 的单位为弧度。
+tan	;	正切	;	float tan ( float $arg )	;	tan() 返回参数 arg 的正切值。参数 arg 的单位为弧度。
+asin	;	反正弦	;	float asin ( float $arg )	;	返回 arg 的反正弦值，单位是弧度。 asin() 是 sin() 的反函数，它的意思是在 asin() 范围里的每个值都是 a==sin(asin(a)) 。
+acos	;	反余弦	;	float acos ( float $arg )	;	返回 arg 的反余弦值，单位是弧度。 acos() 是 cos() 的反函数，它的意思是在 acos() 范围里的每个值都是 a==cos(acos(a)) 。
+atan	;	反正切	;	float atan ( float $arg )	;	返回 arg 的反正切值，单位是弧度。 atan() 是 tan() 的反函数，它的意思是在 atan() 范围里的每个值都是 a==tan(atan(a))。
+atanh	;	反双曲正切	;	float atanh ( float $arg )	;	返回 arg 的反双曲正切值，即，其双曲正切为 arg 的那个值。
+atan2	;	两个参数的反正切	;	float atan2 ( float $y, float $x )	;	
+sinh	;	双曲正弦	;	float sinh ( float $arg )	;	返回 arg 的双曲正弦值，定义为 (exp(arg) - exp(-arg))/2。
+cosh	;	双曲余弦	;	float cosh ( float $arg )	;	返回 arg 的双曲余弦值，定义为 (exp(arg) + exp(-arg))/2。
+tanh	;	双曲正切	;	float tanh ( float $arg )	;	返回 arg 的双曲正切值，定义为 sinh(arg)/cosh(arg)。
+asinh	;	反双曲正弦	;	float asinh ( float $arg )	;	返回 arg 的反双曲正弦值，即，其双曲正弦为 arg 的那个值。
+acosh	;	反双曲余弦	;	float acosh ( float $arg )	;	返回 arg 的反双曲余弦值，即，其双曲余弦为 arg 的那个值。
+expm1	;	返回 exp(number) - 1，甚至当 number 的值接近零也能计算出准确结果	;	float expm1 ( float $arg )	;	expm1() 返回 'exp(number) - 1'，甚至当 number 的值接近零也能计算出准确结果。但是当两个数值趋近于相等的时候， 'exp (number) - 1' 就会变得不太准确。
+log1p	;	返回 log(1 + number)，甚至当 number 的值接近零也能计算出准确结果	;	float log1p ( float $number )	;	log1p() 返回 log(1 + number)，甚至当 number 的值接近零也能计算出准确结果。 log() might only return log(1) in this case due to lack of precision.
+pi	;	得到圆周率值	;	float pi ( void )	;	
+is_finite	;	判断是否为有限值	;	bool is_finite ( float $val )	;	检查 val 是否是是本机平台上浮点数所允许范围中的一个合法的有限值。
+is_nan	;	判断是否为合法数值	;	bool is_nan ( float $val )	;	如果 val 为“非数值”，例如 acos(1.01) 的结果，则返回 TRUE。
+is_infinite	;	判断是否为无限值	;	bool is_infinite ( float $val )	;	如果 val 为无穷大（正的或负的），例如 log(0) 的结果或者任何超出本平台的浮点数范围的值，则返回 TRUE。
+pow	;	指数表达式	;	number pow ( number $base, number $exp )	;	返回 base 的 exp 次方的幂。如果可能，本函数会返回 integer 。
+exp	;	计算 e 的指数	;	float exp ( float $arg )	;	返回 e 的 arg 次方值。
+log	;	自然对数	;	float log ( float $arg [, float $base = M_E ] )	;	如果指定了可选的参数 base， log() 返回 logbase arg，否则 log() 返回参数 arg 的自然对数。
+log10	;	以 10 为底的对数	;	float log10 ( float $arg )	;	返回参数 arg 以 10 为底的对数。
+sqrt	;	平方根	;	float sqrt ( float $arg )	;	返回 arg 的平方根。
+hypot	;	计算一直角三角形的斜边长度	;	float hypot ( float $x, float $y )	;	hypot() 函数将会跟据直角三角形的两直解边长度 x 和 y 计算其斜边的长度。或者是从标点 (x, y) 到原点的距离。该函数的算法等同于 sqrt(x*x + y*y)。
+deg2rad	;	将角度转换为弧度	;	float deg2rad ( float $number )	;	本函数把 number 从角度转换成弧度。
+rad2deg	;	将弧度数转换为相应的角度数	;	float rad2deg ( float $number )	;	本函数将 number 从弧度转换为角度。
+bindec	;	二进制转换为十进制	;	number bindec ( string $binary_string )	;	返回 binary_string 参数所表示的二进制数的十进制等价值。
+hexdec	;	十六进制转换为十进制	;	number hexdec ( string $hex_string )	;	返回与 hex_string 参数所表示的十六进制数等值的的十进制数。 hexdec() 将一个十六进制字符串转换为十进制数。
+octdec	;	八进制转换为十进制	;	number octdec ( string $octal_string )	;	返回 octal_string 参数所表示的八进制数的十进制等值。
+decbin	;	十进制转换为二进制	;	string decbin ( int $number )	;	返回一字符串，包含有给定 number 参数的二进制表示。所能转换的最大数值为十进制的 4294967295，其结果为 32 个 1 的字符串。
+decoct	;	十进制转换为八进制	;	string decoct ( int $number )	;	返回一字符串，包含有给定 number 参数的八进制表示。所能转换的最大数值为十进制的 4294967295，其结果为 "37777777777"。
+dechex	;	十进制转换为十六进制	;	string dechex ( int $number )	;	返回一字符串，包含有给定 number 参数的十六进制表示。
+base_convert	;	在任意进制之间转换数字	;	string base_convert ( string $number, int $frombase, int $tobase )	;	返回一字符串，包含 number 以 tobase 进制的表示。number 本身的进制由 frombase 指定。frombase 和 tobase 都只能在 2 和 36 之间（包括 2 和 36）。高于十进制的数字用字母 a-z 表示，例如 a 表示 10，b 表示 11 以及 z 表示 35。
+number_format	;	Format a number with grouped thousands	;	string number_format ( float $number, int $decimals = 0, string $dec_point = '.' , string $thousands_sep = ',' )	;	This function accepts either one, two, or four parameters (not three):
+fmod	;	返回除法的浮点数余数	;	float fmod ( float $x, float $y )	;	返回被除数（x）除以除数（y）所得的浮点数余数。余数（r）的定义是：x = i * y + r，其中 i 是整数。如果 y 是非零值，则 r 和 x 的符号相同并且其数量值小于 y。
+inet_ntop	;	Converts a packed internet address to a human readable representation	;	string inet_ntop ( string $in_addr )	;	
+inet_pton	;	Converts a human readable IP address to its packed in_addr representation	;	string inet_pton ( string $address )	;	This function converts a human readable IPv4 or IPv6 address (if PHP was built with IPv6 support enabled) into an address family appropriate 32bit or 128bit binary structure.
+ip2long	;	Converts a string containing an (IPv4) Internet Protocol dotted address into a proper address	;	int ip2long ( string $ip_address )	;	The function ip2long() generates an IPv4 Internet network address from its Internet standard format (dotted string) representation.
+long2ip	;	Converts an (IPv4) Internet network address into a string in Internet standard dotted format	;	string long2ip ( string $proper_address )	;	The function long2ip() generates an Internet address in dotted format (i.e.: aaa.bbb.ccc.ddd) from the proper address representation.
+getenv	;	获取一个环境变量的值	;	string getenv ( string $varname )	;	获取一个环境变量的值。
+putenv	;	设置环境变量的值	;	bool putenv ( string $setting )	;	添加 setting 到服务器环境变量。 环境变量仅存活于当前请求期间。 在请求结束时环境会恢复到初始状态。
+getopt	;	从命令行参数列表中获取选项	;	array getopt ( string $options [, array $longopts ] )	;	解析传入脚本的选项。
+sys_getloadavg	;	获取系统的负载（load average）	;	array sys_getloadavg ( void )	;	返回三个系统负载（系统运行队列中的进程数）的样本数据，分别是1分钟、5分钟和15分钟之前。
+microtime	;	返回当前 Unix 时间戳和微秒数	;	mixed microtime ([ bool $get_as_float ] )	;	microtime() 当前 Unix 时间戳以及微秒数。本函数仅在支持 gettimeofday() 系统调用的操作系统下可用。
+gettimeofday	;	取得当前时间	;	mixed gettimeofday ([ bool $return_float = false ] )	;	本函数是 gettimeofday(2) 的接口。返回一个关联数组，包含有系统调用返回的数据。
+getrusage	;	获取当前资源使用状况	;	array getrusage ([ int $who = 0 ] )	;	这是 getrusage(2) 的接口。它返回了调用自系统的数据。
+uniqid	;	生成一个唯一ID	;	string uniqid ([ string $prefix = "" [, bool $more_entropy = false ]] )	;	获取一个带前缀、基于当前时间微秒数的唯一ID。
+quoted_printable_decode	;	Convert a quoted-printable string to an 8 bit string	;	string quoted_printable_decode ( string $str )	;	This function returns an 8-bit binary string corresponding to the decoded quoted printable string (according to &raquo;&nbsp;RFC2045, section 6.7, not &raquo;&nbsp;RFC2821, section 4.5.2, so additional periods are not stripped from the beginning of line).
+quoted_printable_encode	;	Convert a 8 bit string to a quoted-printable string	;	string quoted_printable_encode ( string $str )	;	Returns a quoted printable string created according to &raquo;&nbsp;RFC2045, section 6.7.
+convert_cyr_string	;	将字符由一种 Cyrillic 字符转换成另一种	;	string convert_cyr_string ( string $str, string $from, string $to )	;	此函数将给定的字符串从一种 Cyrillic 字符转换成另一种，返回转换之后的字符串。
+get_current_user	;	获取当前 PHP 脚本所有者名称	;	string get_current_user ( void )	;	
+set_time_limit	;	设置脚本最大执行时间	;	void set_time_limit ( int $seconds )	;	设置允许脚本运行的时间，单位为秒。如果超过了此设置，脚本返回一个致命的错误。默认值为30秒，或者是在php.ini的max_execution_time被定义的值，如果此值存在。
+header_register_callback	;	Call a header function	;	bool header_register_callback ( callable $callback )	;	Registers a function that will be called when PHP starts sending output.
+get_cfg_var	;	获取 PHP 配置选项的值	;	string get_cfg_var ( string $option )	;	获取 PHP 配置选项 option 的值。
+magic_quotes_runtime	;	别名  set_magic_quotes_runtime()	;		;	
+set_magic_quotes_runtime	;	设置当前 magic_quotes_runtime 配置选项的激活状态	;	bool set_magic_quotes_runtime ( bool $new_setting )	;	设置当前 magic_quotes_runtime 配置选项的激活状态。
+get_magic_quotes_gpc	;	获取当前 magic_quotes_gpc 的配置选项设置	;	bool get_magic_quotes_gpc ( void )	;	返回当前 magic_quotes_gpc 配置选项的设置
+get_magic_quotes_runtime	;	获取当前 magic_quotes_runtime 配置选项的激活状态	;	bool get_magic_quotes_runtime ( void )	;	
+error_log	;	发送错误信息到某个地方	;	bool error_log ( string $message [, int $message_type = 0 [, string $destination [, string $extra_headers ]]] )	;	把错误信息发送到 web 服务器的错误日志，或者到一个文件里。
+error_get_last	;	获取最后发生的错误	;	array error_get_last ( void )	;	获取关于最后一个发生的错误的信息。
+call_user_func	;	Call the callback given by the first parameter	;	mixed call_user_func ( callable $callback [, mixed $parameter [, mixed $... ]] )	;	Calls the callback given by the first parameter and passes the remaining parameters as arguments.
+call_user_func_array	;	Call a callback with an array of parameters	;	mixed call_user_func_array ( callable $callback, array $param_arr )	;	Calls the callback given by the first parameter with the parameters in param_arr.
+call_user_method	;	对特定对象调用用户方法（已废弃）	;	mixed call_user_method ( string $method_name, object &$obj [, mixed $parameter [, mixed $... ]] )	;	
+call_user_method_array	;	调用一个用户方法，同时传递参数数组（已废弃）	;	mixed call_user_method_array ( string $method_name, object &$obj, array $paramarr )	;	
+forward_static_call	;	Call a static method	;	mixed forward_static_call ( callable $function [, mixed $parameter [, mixed $... ]] )	;	Calls a user defined function or method given by the function parameter, with the following arguments. This function must be called within a method context, it can't be used outside a class. It uses the late static binding.
+forward_static_call_array	;	Call a static method and pass the arguments as array	;	mixed forward_static_call_array ( callable $function, array $parameters )	;	Calls a user defined function or method given by the function parameter. This function must be called within a method context, it can't be used outside a class. It uses the late static binding. All arguments of the forwarded method are passed as values, and as an array, similarly to call_user_func_array() .
+serialize	;	产生一个可存储的值的表示	;	string serialize ( mixed $value )	;	
+unserialize	;	从已存储的表示中创建 PHP 的值	;	mixed unserialize ( string $str )	;	
+var_dump	;	打印变量的相关信息	;	void var_dump ( mixed $expression [, mixed $... ] )	;	
+var_export	;	输出或返回一个变量的字符串表示	;	mixed var_export ( mixed $expression [, bool $return ] )	;	
+debug_zval_dump	;	Dumps a string representation of an internal zend value to output	;	void debug_zval_dump ( mixed $variable )	;	Dumps a string representation of an internal zend value to output.
+print_r	;	打印关于变量的易于理解的信息。	;	bool print_r ( mixed $expression [, bool $return ] )	;	
+memory_get_usage	;	返回分配给 PHP 的内存量	;	int memory_get_usage ([ bool $real_usage = false ] )	;	返回当前分配给你的 PHP 脚本的内存量，单位是字节（byte）。
+memory_get_peak_usage	;	返回分配给 PHP 内存的峰值	;	int memory_get_peak_usage ([ bool $real_usage = false ] )	;	返回分配给你的 PHP 脚本的内存峰值字节数。
+register_shutdown_function	;	Register a function for execution on shutdown	;	void register_shutdown_function ( callable $callback [, mixed $parameter [, mixed $... ]] )	;	Registers a callback to be executed after script execution finishes or exit() is called.
+register_tick_function	;	Register a function for execution on each tick	;	bool register_tick_function ( callable $function [, mixed $arg [, mixed $... ]] )	;	
+unregister_tick_function	;	De-register a function for execution on each tick	;	void unregister_tick_function ( string $function_name )	;	
+highlight_file	;	语法高亮一个文件	;	mixed highlight_file ( string $filename [, bool $return = false ] )	;	使用PHP内置的语法高亮器所定义的颜色，打印输出或者返回 filename 文件中语法高亮版本的代码。
+show_source	;	别名  highlight_file()	;		;	
+highlight_string	;	字符串的语法高亮	;	mixed highlight_string ( string $str [, bool $return = false ] )	;	
+php_strip_whitespace	;	返回删除注释和空格后的PHP源码	;	string php_strip_whitespace ( string $filename )	;	返回删除注释和空格后 filename 的PHP源码。这对实际代码数量和注释数量的对比很有用。 此函数与 命令行 下执行 php -w 相似。 commandline.
+ini_get	;	获取一个配置选项的值	;	string ini_get ( string $varname )	;	成功时返回配置选项的值。
+ini_get_all	;	获取所有配置选项	;	array ini_get_all ([ string $extension [, bool $details = true ]] )	;	获取所有已注册的配置选项
+ini_set	;	为一个配置选项设置值	;	string ini_set ( string $varname, string $newvalue )	;	设置指定配置选项的值。这个选项会在脚本运行时保持新的值，并在脚本结束时恢复。
+ini_alter	;	别名  ini_set()	;		;	
+ini_restore	;	恢复配置选项的值	;	void ini_restore ( string $varname )	;	恢复指定的配置选项到它的原始值。
+get_include_path	;	获取当前的 include_path 配置选项	;	string get_include_path ( void )	;	
+set_include_path	;	设置 include_path 配置选项	;	string set_include_path ( string $new_include_path )	;	为当前脚本设置 include_path 运行时的配置选项。
+restore_include_path	;	还原 include_path 配置选项的值	;	void restore_include_path ( void )	;	
+setcookie	;	Send a cookie	;	bool setcookie ( string $name [, string $value [, int $expire = 0 [, string $path [, string $domain [, bool $secure = false [, bool $httponly = false ]]]]]] )	;	setcookie() defines a cookie to be sent along with the rest of the HTTP headers. Like other headers, cookies must be sent before any output from your script (this is a protocol restriction). This requires that you place calls to this function prior to any output, including <html> and <head> tags as well as any whitespace.
+setrawcookie	;	Send a cookie without urlencoding the cookie value	;	bool setrawcookie ( string $name [, string $value [, int $expire = 0 [, string $path [, string $domain [, bool $secure = false [, bool $httponly = false ]]]]]] )	;	setrawcookie() is exactly the same as setcookie() except that the cookie value will not be automatically urlencoded when sent to the browser.
+header	;	Send a raw HTTP header	;	void header ( string $string [, bool $replace = true [, int $http_response_code ]] )	;	header() is used to send a raw HTTP header. See the &raquo;&nbsp;HTTP/1.1 specification for more information on HTTP headers.
+header_remove	;	Remove previously set headers	;	void header_remove ([ string $name ] )	;	Removes an HTTP header previously set using header() .
+headers_sent	;	Checks if or where headers have been sent	;	bool headers_sent ([ string &$file [, int &$line ]] )	;	Checks if or where headers have been sent.
+headers_list	;	Returns a list of response headers sent (or ready to send)	;	array headers_list ( void )	;	headers_list() will return a list of headers to be sent to the browser / client. To determine whether or not these headers have been sent yet, use headers_sent() .
+http_response_code	;	Get or Set the HTTP response code	;	int http_response_code ([ int $response_code ] )	;	If you pass no parameters then http_response_code will get the current status code. If you pass a parameter it will set the response code.
+connection_aborted	;	检查客户端是否已经断开	;	int connection_aborted ( void )	;	检查客户端是否已经断开。
+connection_status	;	返回连接的状态位	;	int connection_status ( void )	;	获得当前连接的状态位。
+ignore_user_abort	;	设置客户端断开连接时是否中断脚本的执行	;	int ignore_user_abort ([ string $value ] )	;	设置客户端断开连接时是否中断脚本的执行
+parse_ini_file	;	解析一个配置文件	;	array parse_ini_file ( string $filename [, bool $process_sections = false [, int $scanner_mode = INI_SCANNER_NORMAL ]] )	;	parse_ini_file() 载入一个由 filename 指定的 ini 文件，并将其中的设置作为一个联合数组返回。
+parse_ini_string	;	Parse a configuration string	;	array parse_ini_string ( string $ini [, bool $process_sections = false [, int $scanner_mode = INI_SCANNER_NORMAL ]] )	;	parse_ini_string() returns the settings in string ini in an associative array.
+is_uploaded_file	;	判断文件是否是通过 HTTP POST 上传的	;	bool is_uploaded_file ( string $filename )	;	如果 filename 所给出的文件是通过 HTTP POST 上传的则返回 TRUE。这可以用来确保恶意的用户无法欺骗脚本去访问本不能访问的文件，例如 /etc/passwd。
+move_uploaded_file	;	将上传的文件移动到新位置	;	bool move_uploaded_file ( string $filename, string $destination )	;	本函数检查并确保由 filename 指定的文件是合法的上传文件（即通过 PHP 的 HTTP POST 上传机制所上传的）。如果文件合法，则将其移动为由 destination 指定的文件。
+gethostbyaddr	;	Get the Internet host name corresponding to a given IP address	;	string gethostbyaddr ( string $ip_address )	;	Returns the host name of the Internet host specified by ip_address.
+gethostbyname	;	Get the IPv4 address corresponding to a given Internet host name	;	string gethostbyname ( string $hostname )	;	Returns the IPv4 address of the Internet host specified by hostname.
+gethostbynamel	;	Get a list of IPv4 addresses corresponding to a given Internet host    name	;	array gethostbynamel ( string $hostname )	;	Returns a list of IPv4 addresses to which the Internet host specified by hostname resolves.
+gethostname	;	Gets the host name	;	string gethostname ( void )	;	gethostname() gets the standard host name for the local machine.
+dns_check_record	;	别名  checkdnsrr()	;		;	
+checkdnsrr	;	Check DNS records corresponding to a given Internet host name or IP address	;	bool checkdnsrr ( string $host [, string $type = "MX" ] )	;	Searches DNS for records of type type corresponding to host.
+dns_get_mx	;	别名  getmxrr()	;		;	
+getmxrr	;	Get MX records corresponding to a given Internet host name	;	bool getmxrr ( string $hostname, array &$mxhosts [, array &$weight ] )	;	Searches DNS for MX records corresponding to hostname.
+dns_get_record	;	Fetch DNS Resource Records associated with a hostname	;	array dns_get_record ( string $hostname [, int $type = DNS_ANY [, array &$authns [, array &$addtl ]]] )	;	Fetch DNS Resource Records associated with the given hostname.
+intval	;	获取变量的整数值	;	int intval ( mixed $var [, int $base ] )	;	
+floatval	;	获取变量的浮点值	;	float floatval ( mixed $var )	;	
+doubleval	;	floatval()  的别名	;		;	
+strval	;	获取变量的字符串值	;	string strval ( mixed $var )	;	
+gettype	;	获取变量的类型	;	string gettype ( mixed $var )	;	返回 PHP 变量的类型 var.
+settype	;	设置变量的类型	;	bool settype ( mixed &$var, string $type )	;	将变量 var 的类型设置成 type。
+is_null	;	检测变量是否为 NULL	;	bool is_null ( mixed $var )	;	如果 var 是 null 则返回 TRUE，否则返回 FALSE。
+is_resource	;	检测变量是否为资源类型	;	bool is_resource ( mixed $var )	;	如果给出的参数 var 是 resource 类型， is_resource() 返回 TRUE，否则返回 FALSE。
+is_bool	;	检测变量是否是布尔型	;	bool is_bool ( mixed $var )	;	如果 var 是 boolean 则返回 TRUE。
+is_long	;	is_int()  的别名	;		;	
+is_float	;	检测变量是否是浮点型	;	bool is_float ( mixed $var )	;	
+is_int	;	检测变量是否是整数	;	bool is_int ( mixed $var )	;	
+is_integer	;	is_int()  的别名	;		;	
+is_double	;	is_float()  的别名	;		;	
+is_real	;	is_float()  的别名	;		;	
+is_numeric	;	检测变量是否为数字或数字字符串	;	bool is_numeric ( mixed $var )	;	如果 var 是数字和数字字符串则返回 TRUE，否则返回 FALSE。
+is_string	;	检测变量是否是字符串	;	bool is_string ( mixed $var )	;	如果 var 是 string 则返回 TRUE，否则返回 FALSE。
+is_array	;	检测变量是否是数组	;	bool is_array ( mixed $var )	;	如果 var 是 array ，则返回 TRUE，否则返回 FALSE。
+is_object	;	检测变量是否是一个对象	;	bool is_object ( mixed $var )	;	如果 var 是一个 object 则返回 TRUE，否则返回 FALSE。
+is_scalar	;	检测变量是否是一个标量	;	bool is_scalar ( mixed $var )	;	如果给出的变量参数 var 是一个标量， is_scalar() 返回 TRUE，否则返回 FALSE。
+is_callable	;	检测参数是否为合法的可调用结构	;	bool is_callable ( callable $name [, bool $syntax_only = false [, string &$callable_name ]] )	;	验证变量的内容能否作为函数调用。 这可以检查包含有效函数名的变量，或者一个数组，包含了正确编码的对象以及函数名。
+pclose	;	关闭进程文件指针	;	int pclose ( resource $handle )	;	关闭用 popen() 打开的指向管道的文件指针。
+popen	;	打开进程文件指针	;	resource popen ( string $command, string $mode )	;	打开一个指向进程的管道，该进程由派生给定的 command 命令执行而产生。
+readfile	;	输出一个文件	;	int readfile ( string $filename [, bool $use_include_path = false [, resource $context ]] )	;	读入一个文件并写入到输出缓冲。
+rewind	;	倒回文件指针的位置	;	bool rewind ( resource $handle )	;	将 handle 的文件位置指针设为文件流的开头。
+rmdir	;	删除目录	;	bool rmdir ( string $dirname [, resource $context ] )	;	尝试删除 dirname 所指定的目录。 该目录必须是空的，而且要有相应的权限。 失败时会产生一个 E_WARNING 级别的错误。
+umask	;	改变当前的 umask	;	int umask ([ int $mask ] )	;	umask() 将 PHP 的 umask 设定为 mask & 0777 并返回原来的 umask。当 PHP 被作为服务器模块使用时，在每个请求结束后 umask 会被恢复。
+fclose	;	关闭一个已打开的文件指针	;	bool fclose ( resource $handle )	;	将 handle 指向的文件关闭。
+feof	;	测试文件指针是否到了文件结束的位置	;	bool feof ( resource $handle )	;	测试文件指针是否到了文件结束的位。
+fgetc	;	从文件指针中读取字符	;	string fgetc ( resource $handle )	;	从文件句柄中获取一个字符。
+fgets	;	从文件指针中读取一行	;	string fgets ( resource $handle [, int $length ] )	;	从文件指针中读取一行。
+fgetss	;	从文件指针中读取一行并过滤掉 HTML 标记	;	string fgetss ( resource $handle [, int $length [, string $allowable_tags ]] )	;	和 fgets() 相同，只除了 fgetss() 尝试从读取的文本中去掉任何 HTML 和 PHP 标记。
+fread	;	读取文件（可安全用于二进制文件）	;	string fread ( resource $handle, int $length )	;	fread() 从文件指针 handle 读取最多 length 个字节。 该函数在遇上以下几种情况时停止读取文件： 读取了 length 个字节 到达了文件末尾（EOF） a packet becomes available or the socket timeout occurs (for network streams) if the stream is read buffered and it does not represent a plain file, at most one read of up to a number of bytes equal to the chunk size (usually 8192) is made; depending on the previously buffered data, the size of the returned data may be larger than the chunk size.
+fopen	;	打开文件或者 URL	;	resource fopen ( string $filename, string $mode [, bool $use_include_path = false [, resource $context ]] )	;	fopen() 将 filename 指定的名字资源绑定到一个流上。
+fpassthru	;	输出文件指针处的所有剩余数据	;	int fpassthru ( resource $handle )	;	将给定的文件指针从当前的位置读取到 EOF 并把结果写到输出缓冲区。
+ftruncate	;	将文件截断到给定的长度	;	bool ftruncate ( resource $handle, int $size )	;	接受文件指针 handle 作为参数，并将文件大小截取为 size。
+fstat	;	通过已打开的文件指针取得文件信息	;	array fstat ( resource $handle )	;	获取由文件指针 handle 所打开文件的统计信息。本函数和 stat() 函数相似，除了它是作用于已打开的文件指针而不是文件名。
+fseek	;	在文件指针中定位	;	int fseek ( resource $handle, int $offset [, int $whence = SEEK_SET ] )	;	在与 handle 关联的文件中设定文件指针位置。 新位置从文件头开始以字节数度量，是以 whence 指定的位置加上 offset。
+ftell	;	返回文件指针读/写的位置	;	int ftell ( resource $handle )	;	返回由 handle 指定的文件指针的位置，也就是文件流中的偏移量。
+fflush	;	将缓冲内容输出到文件	;	bool fflush ( resource $handle )	;	本函数强制将所有缓冲的输出写入 handle 文件句柄所指向的资源。 成功时返回 TRUE， 或者在失败时返回 FALSE。
+fwrite	;	写入文件（可安全用于二进制文件）	;	int fwrite ( resource $handle, string $string [, int $length ] )	;	
+fputs	;	fwrite()  的别名	;		;	
+mkdir	;	新建目录	;	bool mkdir ( string $pathname [, int $mode = 0777 [, bool $recursive = false [, resource $context ]]] )	;	尝试新建一个由 pathname 指定的目录。
+rename	;	重命名一个文件或目录	;	bool rename ( string $oldname, string $newname [, resource $context ] )	;	尝试把 oldname 重命名为 newname。
+copy	;	拷贝文件	;	bool copy ( string $source, string $dest [, resource $context ] )	;	将文件从 source 拷贝到 dest。
+tempnam	;	建立一个具有唯一文件名的文件	;	string tempnam ( string $dir, string $prefix )	;	在指定目录中建立一个具有唯一文件名的文件。如果该目录不存在， tempnam() 会在系统临时目录中生成一个文件，并返回其文件名。
+tmpfile	;	建立一个临时文件	;	resource tmpfile ( void )	;	以读写（w+）模式建立一个具有唯一文件名的临时文件，返回一个文件句柄。
+file	;	把整个文件读入一个数组中	;	array file ( string $filename [, int $flags = 0 [, resource $context ]] )	;	把整个文件读入一个数组中。
+file_get_contents	;	将整个文件读入一个字符串	;	string file_get_contents ( string $filename [, bool $use_include_path = false [, resource $context [, int $offset = -1 [, int $maxlen ]]]] )	;	和 file() 一样，只除了 file_get_contents() 把文件读入一个字符串。将在参数 offset 所指定的位置开始读取长度为 maxlen 的内容。如果失败， file_get_contents() 将返回 FALSE。
+file_put_contents	;	将一个字符串写入文件	;	int file_put_contents ( string $filename, mixed $data [, int $flags = 0 [, resource $context ]] )	;	和依次调用 fopen() ， fwrite() 以及 fclose() 功能一样。
+stream_select	;	Runs the equivalent of the select() system call on the given    arrays of streams with a timeout specified by tv_sec and tv_usec	;	int stream_select ( array &$read, array &$write, array &$except, int $tv_sec [, int $tv_usec = 0 ] )	;	The stream_select() function accepts arrays of streams and waits for them to change status. Its operation is equivalent to that of the socket_select() function except in that it acts on streams.
+stream_context_create	;	Creates a stream context	;	resource stream_context_create ([ array $options [, array $params ]] )	;	Creates and returns a stream context with any options supplied in options preset.
+stream_context_set_params	;	Set parameters for a stream/wrapper/context	;	bool stream_context_set_params ( resource $stream_or_context, array $params )	;	Sets parameters on the specified context.
+stream_context_get_params	;	Retrieves parameters from a context	;	array stream_context_get_params ( resource $stream_or_context )	;	Retrieves parameter and options information from the stream or context.
+stream_context_set_option	;	Sets an option for a stream/wrapper/context	;	bool stream_context_set_option ( resource $stream_or_context, array $options )	;	
+stream_context_get_options	;	Retrieve options for a stream/wrapper/context	;	array stream_context_get_options ( resource $stream_or_context )	;	
+stream_context_get_default	;	Retrieve the default stream context	;	resource stream_context_get_default ([ array $options ] )	;	
+stream_context_set_default	;	Set the default stream context	;	resource stream_context_set_default ( array $options )	;	
+stream_filter_prepend	;	Attach a filter to a stream	;	resource stream_filter_prepend ( resource $stream, string $filtername [, int $read_write [, mixed $params ]] )	;	Adds filtername to the list of filters attached to stream.
+stream_filter_append	;	Attach a filter to a stream	;	resource stream_filter_append ( resource $stream, string $filtername [, int $read_write [, mixed $params ]] )	;	Adds filtername to the list of filters attached to stream.
+stream_filter_remove	;	Remove a filter from a stream	;	bool stream_filter_remove ( resource $stream_filter )	;	Removes a stream filter previously added to a stream with stream_filter_prepend() or stream_filter_append() . Any data remaining in the filter's internal buffer will be flushed through to the next filter before removing it.
+stream_socket_client	;	Open Internet or Unix domain socket connection	;	resource stream_socket_client ( string $remote_socket [, int &$errno [, string &$errstr [, float $timeout = ini_get("default_socket_timeout") [, int $flags = STREAM_CLIENT_CONNECT [, resource $context ]]]]] )	;	Initiates a stream or datagram connection to the destination specified by remote_socket. The type of socket created is determined by the transport specified using standard URL formatting: transport://target. For Internet Domain sockets (AF_INET) such as TCP and UDP, the target portion of the remote_socket parameter should consist of a hostname or IP address followed by a colon and a port number. For Unix domain sockets, the target portion should point to the socket file on the filesystem.
+stream_socket_server	;	Create an Internet or Unix domain server socket	;	resource stream_socket_server ( string $local_socket [, int &$errno [, string &$errstr [, int $flags = STREAM_SERVER_BIND | STREAM_SERVER_LISTEN [, resource $context ]]]] )	;	Creates a stream or datagram socket on the specified local_socket.
+stream_socket_accept	;	Accept a connection on a socket created by  stream_socket_server()	;	resource stream_socket_accept ( resource $server_socket [, float $timeout = ini_get("default_socket_timeout") [, string &$peername ]] )	;	Accept a connection on a socket previously created by stream_socket_server() .
+stream_socket_get_name	;	Retrieve the name of the local or remote sockets	;	string stream_socket_get_name ( resource $handle, bool $want_peer )	;	Returns the local or remote name of a given socket connection.
+stream_socket_recvfrom	;	Receives data from a socket, connected or not	;	string stream_socket_recvfrom ( resource $socket, int $length [, int $flags = 0 [, string &$address ]] )	;	stream_socket_recvfrom() accepts data from a remote socket up to length bytes.
+stream_socket_sendto	;	Sends a message to a socket, whether it is connected or not	;	int stream_socket_sendto ( resource $socket, string $data [, int $flags = 0 [, string $address ]] )	;	Sends the specified data through the socket.
+stream_socket_enable_crypto	;	Turns encryption on/off on an already connected socket	;	mixed stream_socket_enable_crypto ( resource $stream, bool $enable [, int $crypto_type [, resource $session_stream ]] )	;	
+stream_socket_shutdown	;	Shutdown a full-duplex connection	;	bool stream_socket_shutdown ( resource $stream, int $how )	;	Shutdowns (partially or not) a full-duplex connection.
+stream_socket_pair	;	Creates a pair of connected, indistinguishable socket streams	;	array stream_socket_pair ( int $domain, int $type, int $protocol )	;	stream_socket_pair() creates a pair of connected, indistinguishable socket streams. This function is commonly used in IPC (Inter-Process Communication).
+stream_copy_to_stream	;	Copies data from one stream to another	;	int stream_copy_to_stream ( resource $source, resource $dest [, int $maxlength = -1 [, int $offset = 0 ]] )	;	Makes a copy of up to maxlength bytes of data from the current position (or from the offset position, if specified) in source to dest. If maxlength is not specified, all remaining content in source will be copied.
+stream_get_contents	;	Reads remainder of a stream into a string	;	string stream_get_contents ( resource $handle [, int $maxlength = -1 [, int $offset = -1 ]] )	;	Identical to file_get_contents() , except that stream_get_contents() operates on an already open stream resource and returns the remaining contents in a string, up to maxlength bytes and starting at the specified offset.
+stream_supports_lock	;	Tells whether the stream supports locking.	;	bool stream_supports_lock ( resource $stream )	;	Tells whether the stream supports locking through flock() .
+fgetcsv	;	从文件指针中读入一行并解析 CSV 字段	;	array fgetcsv ( resource $handle [, int $length = 0 [, string $delimiter = ',' [, string $enclosure = '"' [, string $escape = '\\' ]]]] )	;	和 fgets() 类似，只除了 fgetcsv() 解析读入的行并找出 CSV 格式的字段然后返回一个包含这些字段的数组。
+fputcsv	;	将行格式化为 CSV 并写入文件指针	;	int fputcsv ( resource $handle, array $fields [, string $delimiter = ',' [, string $enclosure = '"' ]] )	;	fputcsv() 将一行（用 fields 数组传递）格式化为 CSV 格式并写入由 handle 指定的文件。
+flock	;	轻便的咨询文件锁定	;	bool flock ( resource $handle, int $operation [, int &$wouldblock ] )	;	flock() 允许执行一个简单的可以在任何平台中使用的读取/写入模型（包括大部分的 Unix 派生版和甚至是 Windows）。
+get_meta_tags	;	从一个文件中提取所有的 meta 标签 content 属性，返回一个数组	;	array get_meta_tags ( string $filename [, bool $use_include_path = false ] )	;	打开 filename 逐行解析文件中的 <meta> 标签。解析工作将在 </head> 处停止。
+stream_set_read_buffer	;	Set read file buffering on the given stream	;	int stream_set_read_buffer ( resource $stream, int $buffer )	;	Sets the read buffer. It's the equivalent of stream_set_write_buffer() , but for read operations.
+stream_set_write_buffer	;	Sets write file buffering on the given stream	;	int stream_set_write_buffer ( resource $stream, int $buffer )	;	Sets the buffering for write operations on the given stream to buffer bytes.
+set_file_buffer	;	stream_set_write_buffer()  的别名	;		;	
+stream_set_chunk_size	;	Set the stream chunk size	;	int stream_set_chunk_size ( resource $fp, int $chunk_size )	;	Set the stream chunk size.
+set_socket_blocking	;	别名  stream_set_blocking()	;		;	
+stream_set_blocking	;	Set blocking/non-blocking mode on a stream	;	bool stream_set_blocking ( resource $stream, int $mode )	;	Sets blocking or non-blocking mode on a stream.
+socket_set_blocking	;	别名  stream_set_blocking()	;		;	
+stream_get_meta_data	;	从封装协议文件指针中取得报头／元数据	;	array stream_get_meta_data ( int $fp )	;	
+stream_get_line	;	Gets line from stream resource up to a given delimiter	;	string stream_get_line ( resource $handle, int $length [, string $ending ] )	;	Gets a line from the given handle.
+stream_wrapper_register	;	注册一个用 PHP 类实现的 URL 封装协议	;	boolean stream_flush ( void )	;	当对流进行 fflush() 操作时本方法被调用。如果你在流中缓存了数据还没有写入底层存储空间时，那现在应该做了。如果缓存数据被成功保存（或没有数据可供保存）时返回 TRUE，当数据无法被保存时返回 FALSE。
+stream_register_wrapper	;	别名  stream_wrapper_register()	;		;	
+stream_wrapper_unregister	;	Unregister a URL wrapper	;	bool stream_wrapper_unregister ( string $protocol )	;	Allows you to disable an already defined stream wrapper. Once the wrapper has been disabled you may override it with a user-defined wrapper using stream_wrapper_register() or reenable it later on with stream_wrapper_restore() .
+stream_wrapper_restore	;	Restores a previously unregistered built-in wrapper	;	bool stream_wrapper_restore ( string $protocol )	;	Restores a built-in wrapper previously unregistered with stream_wrapper_unregister() .
+stream_get_wrappers	;	Retrieve list of registered streams	;	array stream_get_wrappers ( void )	;	Retrieve list of registered streams available on the running system.
+stream_get_transports	;	Retrieve list of registered socket transports	;	array stream_get_transports ( void )	;	
+stream_resolve_include_path	;	Resolve filename against the include path	;	string stream_resolve_include_path ( string $filename )	;	Resolve filename against the include path according to the same rules as fopen() / include .
+stream_is_local	;	Checks if a stream is a local stream	;	bool stream_is_local ( mixed $stream_or_url )	;	Checks if a stream, or a URL, is a local one or not.
+get_headers	;	取得服务器响应一个 HTTP 请求所发送的所有标头	;	array get_headers ( string $url [, int $format = 0 ] )	;	get_headers() 返回一个数组，包含有服务器响应一个 HTTP 请求所发送的标头。
+stream_set_timeout	;	Set timeout period on a stream	;	bool stream_set_timeout ( resource $stream, int $seconds [, int $microseconds = 0 ] )	;	Sets the timeout value on stream, expressed in the sum of seconds and microseconds.
+socket_set_timeout	;	别名  stream_set_timeout()	;		;	
+socket_get_status	;	别名  stream_get_meta_data()	;		;	
+realpath	;	返回规范化的绝对路径名	;	string realpath ( string $path )	;	realpath() 扩展所有的符号连接并且处理输入的 path 中的 '/./', '/../' 以及多余的 '/' 并返回规范化后的绝对路径名。返回的路径中没有符号连接，'/./' 或 '/../' 成分。
+fnmatch	;	用模式匹配文件名	;	bool fnmatch ( string $pattern, string $string [, int $flags = 0 ] )	;	fnmatch() 检查传入的 string 是否匹配给出的 shell 统配符 pattern。
+fsockopen	;	Open Internet or Unix domain socket connection	;	resource fsockopen ( string $hostname [, int $port = -1 [, int &$errno [, string &$errstr [, float $timeout = ini_get("default_socket_timeout") ]]]] )	;	Initiates a socket connection to the resource specified by hostname.
+pfsockopen	;	Open persistent Internet or Unix domain socket connection	;	resource pfsockopen ( string $hostname [, int $port = -1 [, int &$errno [, string &$errstr [, float $timeout = ini_get("default_socket_timeout") ]]]] )	;	This function behaves exactly as fsockopen() with the difference that the connection is not closed after the script finishes. It is the persistent version of fsockopen() .
+pack	;	Pack data into binary string	;	string pack ( string $format [, mixed $args [, mixed $... ]] )	;	Pack given arguments into binary string according to format.
+unpack	;	Unpack data from binary string	;	array unpack ( string $format, string $data )	;	Unpacks from a binary string into an array according to the given format.
+get_browser	;	获取浏览器具有的功能	;	mixed get_browser ([ string $user_agent [, bool $return_array = false ]] )	;	通过查找 browscap.ini 文件中的浏览器信息，尝试检测用户的浏览器所具有的功能。
+crypt	;	单向字符串散列	;	string crypt ( string $str [, string $salt ] )	;	crypt() 返回一个基于标准 UNIX DES 算法或系统上其他可用的替代算法的散列字符串。
+opendir	;	打开目录句柄	;	resource opendir ( string $path [, resource $context ] )	;	打开一个目录句柄，可用于之后的 closedir() ， readdir() 和 rewinddir() 调用中。
+closedir	;	关闭目录句柄	;	void closedir ( resource $dir_handle )	;	关闭由 dir_handle 指定的目录流。流必须之前被 opendir() 所打开。
+chdir	;	改变目录	;	bool chdir ( string $directory )	;	将 PHP 的当前目录改为 directory。
+getcwd	;	取得当前工作目录	;	string getcwd ( void )	;	取得当前工作目录。
+rewinddir	;	倒回目录句柄	;	void rewinddir ( resource $dir_handle )	;	将 dir_handle 指定的目录流重置到目录的开头。
+readdir	;	从目录句柄中读取条目	;	string readdir ([ resource $dir_handle ] )	;	返回目录中下一个文件的文件名。文件名以在文件系统中的排序返回。
+dir	;	Return an instance of the Directory class	;	Directory dir ( string $directory [, resource $context ] )	;	A pseudo-object oriented mechanism for reading a directory. The given directory is opened.
+scandir	;	列出指定路径中的文件和目录	;	array scandir ( string $directory [, int $sorting_order [, resource $context ]] )	;	返回一个 array ，包含有 directory 中的文件和目录。
+glob	;	寻找与模式匹配的文件路径	;	array glob ( string $pattern [, int $flags = 0 ] )	;	glob() 函数依照 libc glob() 函数使用的规则寻找所有与 pattern 匹配的文件路径，类似于一般 shells 所用的规则一样。不进行缩写扩展或参数替代。
+fileatime	;	取得文件的上次访问时间	;	int fileatime ( string $filename )	;	
+filectime	;	取得文件的 inode 修改时间	;	int filectime ( string $filename )	;	取得文件的 inode 修改时间。
+filegroup	;	取得文件的组	;	int filegroup ( string $filename )	;	取得该文件所属组的 ID。组 ID 以数字格式返回，用 posix_getgrgid() 来将其解析为组名。
+fileinode	;	取得文件的 inode	;	int fileinode ( string $filename )	;	取得文件的 inode。
+filemtime	;	取得文件修改时间	;	int filemtime ( string $filename )	;	本函数返回文件中的数据块上次被写入的时间，也就是说，文件的内容上次被修改的时间。
+fileowner	;	取得文件的所有者	;	int fileowner ( string $filename )	;	取得文件的所有者。
+fileperms	;	取得文件的权限	;	int fileperms ( string $filename )	;	取得文件的权限。
+filesize	;	取得文件大小	;	int filesize ( string $filename )	;	取得指定文件的大小。
+filetype	;	取得文件类型	;	string filetype ( string $filename )	;	返回文件的类型。
+file_exists	;	检查文件或目录是否存在	;	bool file_exists ( string $filename )	;	检查文件或目录是否存在。
+is_writable	;	判断给定的文件名是否可写	;	bool is_writable ( string $filename )	;	如果文件存在并且可写则返回 TRUE。filename 参数可以是一个允许进行是否可写检查的目录名。
+is_writeable	;	is_writable()  的别名	;		;	
+is_readable	;	判断给定文件名是否可读	;	bool is_readable ( string $filename )	;	判断给定文件名是否存在并且可读。
+is_executable	;	判断给定文件名是否可执行	;	bool is_executable ( string $filename )	;	判断给定文件名是否可执行。
+is_file	;	判断给定文件名是否为一个正常的文件	;	bool is_file ( string $filename )	;	判断给定文件名是否为一个正常的文件。
+is_dir	;	判断给定文件名是否是一个目录	;	bool is_dir ( string $filename )	;	判断给定文件名是否是一个目录。
+is_link	;	判断给定文件名是否为一个符号连接	;	bool is_link ( string $filename )	;	判断给定文件名是否为一个符号连接。
+stat	;	给出文件的信息	;	array stat ( string $filename )	;	获取由 filename 指定的文件的统计信息。如果 filename 是符号连接，则统计信息是关于被连接文件本身的，而不是符号连接。
+lstat	;	给出一个文件或符号连接的信息	;	array lstat ( string $filename )	;	获取由 filename 指定的文件或符号连接的统计信息。
+chown	;	改变文件的所有者	;	bool chown ( string $filename, mixed $user )	;	尝试将文件 filename 的所有者改成用户 user（由用户名或用户 ID 指定）。 只有超级用户可以改变文件的所有者。
+chgrp	;	改变文件所属的组	;	bool chgrp ( string $filename, mixed $group )	;	尝试将文件 filename 所属的组改成 group（通过组名或组 ID 指定）。
+lchown	;	Changes user ownership of symlink	;	bool lchown ( string $filename, mixed $user )	;	Attempts to change the owner of the symlink filename to user user.
+lchgrp	;	Changes group ownership of symlink	;	bool lchgrp ( string $filename, mixed $group )	;	Attempts to change the group of the symlink filename to group.
+chmod	;	改变文件模式	;	bool chmod ( string $filename, int $mode )	;	尝试将 filename 所指定文件的模式改成 mode 所给定的。
+touch	;	设定文件的访问和修改时间	;	bool touch ( string $filename [, int $time = time() [, int $atime ]] )	;	尝试将由 filename 给出的文件的访问和修改时间设定为给出的 time。 注意访问时间总是会被修改的，不论有几个参数。
+clearstatcache	;	清除文件状态缓存	;	void clearstatcache ([ bool $clear_realpath_cache = false [, string $filename ]] )	;	当使用 stat() ， lstat() 或者任何列在受影响函数表（见下面）中的函数时，PHP 将缓存这些函数的返回信息以提供更快的性能。然而在某些情况下，你可能想清除被缓存的信息。例如如果在一个脚本中多次检查同一个文件，而该文件在此脚本执行期间有被删除或修改的危险时，你需要清除文件状态缓存。这种情况下，可以用 clearstatcache() 函数来清除被 PHP 缓存的该文件信息。
+disk_total_space	;	返回一个目录的磁盘总大小	;	float disk_total_space ( string $directory )	;	给出一个包含有一个目录的字符串，本函数将根据相应的文件系统或磁盘分区返回所有的字节数。 【译者注】本函数返回的是该目录所在的磁盘分区的总大小，因此在给出同一个磁盘分区的不同目录作为参数所得到的结果完全相同。 在 Unix 和 Windows 200x/XP 中都支持将一个磁盘分区加载为一个子目录，这时正确使用本函数就很有意义。
+disk_free_space	;	返回目录中的可用空间	;	float disk_free_space ( string $directory )	;	给出一个包含有一个目录的字符串，本函数将根据相应的文件系统或磁盘分区返回可用的字节数。
+diskfreespace	;	disk_free_space()  的别名	;		;	
+realpath_cache_size	;	Get realpath cache size	;	int realpath_cache_size ( void )	;	Get the amount of memory used by the realpath cache.
+realpath_cache_get	;	Get realpath cache entries	;	array realpath_cache_get ( void )	;	Get the contents of the realpath cache.
+mail	;	发送邮件	;	bool mail ( string $to, string $subject, string $message [, string $additional_headers [, string $additional_parameters ]] )	;	发送一封电子邮件。
+ezmlm_hash	;	计算 EZMLM 所需的散列值	;	int ezmlm_hash ( string $addr )	;	
+openlog	;	Open connection to system logger	;	bool openlog ( string $ident, int $option, int $facility )	;	openlog() opens a connection to the system logger for a program.
+syslog	;	Generate a system log message	;	bool syslog ( int $priority, string $message )	;	syslog() generates a log message that will be distributed by the system logger.
+closelog	;	Close connection to system logger	;	bool closelog ( void )	;	closelog() closes the descriptor being used to write to the system logger. The use of closelog() is optional.
+lcg_value	;	组合线性同余发生器	;	float lcg_value ( void )	;	lcg_value() 返回范围为 (0, 1) 的一个伪随机数。本函数组合了周期为 2^31 - 85 和 2^31 - 249 的两个同余发生器。本函数的周期等于这两个素数的乘积。
+metaphone	;	Calculate the metaphone key of a string	;	string metaphone ( string $str [, int $phonemes = 0 ] )	;	Calculates the metaphone key of str.
+ob_start	;	打开输出控制缓冲	;	bool ob_start ([ callback $output_callback [, int $chunk_size [, bool $erase ]]] )	;	此函数将打开输出缓冲。当输出缓冲是活跃的时候，没有输出能从脚本送出（除http标头外），相反输 出的内容被存储在内部缓冲区中。
+ob_flush	;	冲刷出（送出）输出缓冲区中的内容	;	void ob_flush ( void )	;	这个函数将送出缓冲区的内容（如果里边有内容的话）。如果想进一步处理缓冲区中的内容，必须在 ob_flush() 之前调用 ob_get_contents() ，因为在调用 ob_flush() 之后缓冲区内容将被丢弃。
+ob_clean	;	清空（擦掉）输出缓冲区	;	void ob_clean ( void )	;	此函数用来丢弃输出缓冲区中的内容。
+ob_end_flush	;	冲刷出（送出）输出缓冲区内容并关闭缓冲	;	bool ob_end_flush ( void )	;	这个函数将送出最顶层缓冲区的内容（如果里边有内容的话），并关闭缓冲区。如果想进一步处理缓冲区中的内容，必须在 ob_end_flush() 之前调用 ob_get_contents() ，因为在调用 ob_end_flush() 后缓冲区内容被丢弃。
+ob_end_clean	;	清空（擦除）缓冲区并关闭输出缓冲	;	bool ob_end_clean ( void )	;	此函数丢弃最顶层输出缓冲区的内容并关闭这个缓冲区。如果想要进一步处理缓冲区的内容，必须在 ob_end_clean() 之前调用 ob_get_contents() ，因为当调用 ob_end_clean() 时缓冲区内容将被丢弃。
+ob_get_flush	;	刷出（送出）缓冲区内容，以字符串形式返回内容，并关闭输出缓冲区。	;	string ob_get_flush ( void )	;	ob_get_flush() 刷出（送出）缓冲区内容，以字符串形式返回内容，并关闭输出缓冲区。
+ob_get_clean	;	得到当前缓冲区的内容并删除当前输出缓。	;	string ob_get_clean ( void )	;	得到当前缓冲区的内容并删除当前输出缓冲区。
+ob_get_length	;	返回输出缓冲区内容的长度	;	int ob_get_length ( void )	;	此函数将返回输出缓中冲区内容的长度。
+ob_get_level	;	返回输出缓冲机制的嵌套级别	;	int ob_get_level ( void )	;	返回输出缓冲机制的嵌套级别。
+ob_get_status	;	得到所有输出缓冲区的状态	;	array ob_get_status ([ bool $full_status = FALSE ] )	;	ob_get_status() 返回最顶层输出缓冲区的状态信息；或者如果full_status设为TRUE，返回所有有效的输出缓冲级别。
+ob_get_contents	;	返回输出缓冲区的内容	;	string ob_get_contents ( void )	;	只是得到输出缓冲区的内容，但不清除它。
+ob_implicit_flush	;	打开/关闭绝对刷送	;	void ob_implicit_flush ([ int $flag = true ] )	;	ob_implicit_flush() 将打开或关闭绝对（隐式）刷送。绝对（隐式）刷送将导致在每次输出调用后有一次刷送操作，以便不再需要对 flush() 的显式调用。
+ob_list_handlers	;	列出所有使用中的输出处理程序。	;	array ob_list_handlers ( void )	;	列出所有使用中的输出处理程序。
+ksort	;	对数组按照键名排序	;	bool ksort ( array &$array [, int $sort_flags = SORT_REGULAR ] )	;	对数组按照键名排序，保留键名到数据的关联。本函数主要用于关联数组。
+krsort	;	对数组按照键名逆向排序	;	bool krsort ( array &$array [, int $sort_flags = SORT_REGULAR ] )	;	对数组按照键名逆向排序，保留键名到数据的关联。主要用于结合数组。
+natsort	;	用“自然排序”算法对数组排序	;	bool natsort ( array &$array )	;	本函数实现了一个和人们通常对字母数字字符串进行排序的方法一样的排序算法并保持原有键／值的关联，这被称为“自然排序”。本算法和通常的计算机字符串排序算法（用于 sort() ）的区别见下面示例。
+natcasesort	;	用“自然排序”算法对数组进行不区分大小写字母的排序	;	bool natcasesort ( array &$array )	;	natcasesort() 是 natsort() 函数的不区分大小写字母的版本。
+asort	;	对数组进行排序并保持索引关系	;	bool asort ( array &$array [, int $sort_flags = SORT_REGULAR ] )	;	本函数对数组进行排序，数组的索引保持和单元的关联。主要用于对那些单元顺序很重要的结合数组进行排序。
+arsort	;	对数组进行逆向排序并保持索引关系	;	bool arsort ( array &$array [, int $sort_flags = SORT_REGULAR ] )	;	本函数对数组进行排序，数组的索引保持和单元的关联。
+sort	;	对数组排序	;	bool sort ( array &$array [, int $sort_flags = SORT_REGULAR ] )	;	本函数对数组进行排序。当本函数结束时数组单元将被从最低到最高重新安排。
+rsort	;	对数组逆向排序	;	bool rsort ( array &$array [, int $sort_flags = SORT_REGULAR ] )	;	本函数对数组进行逆向排序（最高到最低）。
+usort	;	使用用户自定义的比较函数对数组中的值进行排序	;	int callback ( mixed $a, mixed $b )	;	本函数将用用户自定义的比较函数对一个数组中的值进行排序。如果要排序的数组需要用一种不寻常的标准进行排序，那么应该使用此函数。
+uasort	;	使用用户自定义的比较函数对数组中的值进行排序并保持索引关联	;	bool uasort ( array &$array, callable $cmp_function )	;	本函数对数组排序并保持索引和单元之间的关联。
+uksort	;	使用用户自定义的比较函数对数组中的键名进行排序	;	int callback ( mixed $a, mixed $b )	;	uksort() 函数将使用用户提供的比较函数对数组中的键名进行排序。如果要排序的数组需要用一种不寻常的标准进行排序，那么应该使用此函数。
+shuffle	;	将数组打乱	;	bool shuffle ( array &$array )	;	本函数打乱（随机排列单元的顺序）一个数组。
+array_walk	;	对数组中的每个成员应用用户函数	;	bool array_walk ( array &$array, callable $funcname [, mixed $userdata = NULL ] )	;	
+array_walk_recursive	;	对数组中的每个成员递归地应用用户函数	;	bool array_walk_recursive ( array &$input, callable $funcname [, mixed $userdata = NULL ] )	;	将用户自定义函数 funcname 应用到 array 数组中的每个单元。本函数会递归到更深层的数组中去。
+count	;	计算数组中的单元数目或对象中的属性个数	;	int count ( mixed $var [, int $mode = COUNT_NORMAL ] )	;	统计一个数组里的所有元素，或者一个对象里的东西。
+end	;	将数组的内部指针指向最后一个单元	;	mixed end ( array &$array )	;	end() 将 array 的内部指针移动到最后一个单元并返回其值。
+prev	;	将数组的内部指针倒回一位	;	mixed prev ( array &$array )	;	将数组的内部指针倒回一位。
+next	;	将数组中的内部指针向前移动一位	;	mixed next ( array &$array )	;	next() 和 current() 的行为类似，只有一点区别，在返回值之前将内部指针向前移动一位。这意味着它返回的是下一个数组单元的值并将数组指针向前移动了一位。
+reset	;	将数组的内部指针指向第一个单元	;	mixed reset ( array &$array )	;	reset() 将 array 的内部指针倒回到第一个单元并返回第一个数组单元的值。
+current	;	返回数组中的当前单元	;	mixed current ( array &$array )	;	每个数组中都有一个内部的指针指向它“当前的”单元，初始指向插入到数组中的第一个单元。
+key	;	从关联数组中取得键名	;	mixed key ( array &$array )	;	key() 返回数组中当前单元的键名。
+min	;	找出最小值	;	mixed min ( mixed $value1, mixed $value2 [, mixed $... ] )	;	如果仅有一个参数且为数组， min() 返回该数组中最小的值。如果给出了两个或更多参数, min() 会返回这些值中最小的一个。
+max	;	找出最大值	;	mixed max ( mixed $value1, mixed $value2 [, mixed $... ] )	;	如果仅有一个参数且为数组， max() 返回该数组中最大的值。如果第一个参数是整数、字符串或浮点数，则至少需要两个参数而 max() 会返回这些值中最大的一个。可以比较无限多个值。
+in_array	;	检查数组中是否存在某个值	;	bool in_array ( mixed $needle, array $haystack [, bool $strict = FALSE ] )	;	在 haystack 中搜索 needle，如果没有设置 strict 则使用宽松的比较。
+array_search	;	在数组中搜索给定的值，如果成功则返回相应的键名	;	mixed array_search ( mixed $needle, array $haystack [, bool $strict = false ] )	;	在 haystack 中搜索 needle 参数。
+extract	;	从数组中将变量导入到当前的符号表	;	int extract ( array &$var_array [, int $extract_type = EXTR_OVERWRITE [, string $prefix = NULL ]] )	;	本函数用来将变量从数组中导入到当前的符号表中。
+compact	;	建立一个数组，包括变量名和它们的值	;	array compact ( mixed $varname [, mixed $... ] )	;	创建一个包含变量与其值的数组。
+array_fill	;	用给定的值填充数组	;	array array_fill ( int $start_index, int $num, mixed $value )	;	array_fill() 用 value 参数的值将一个数组填充 num 个条目，键名由 start_index 参数指定的开始。
+array_fill_keys	;	使用指定的键和值填充数组	;	array array_fill_keys ( array $keys, mixed $value )	;	使用 value 参数的值作为值，使用 keys 数组的值作为键来填充一个数组。
+range	;	建立一个包含指定范围单元的数组	;	array range ( mixed $start, mixed $limit [, number $step = 1 ] )	;	建立一个包含指定范围单元的数组。
+array_multisort	;	对多个数组或多维数组进行排序	;	bool array_multisort ( array &$arr [, mixed $arg = SORT_ASC [, mixed $arg = SORT_REGULAR [, mixed $... ]]] )	;	array_multisort() 可以用来一次对多个数组进行排序，或者根据某一维或多维对多维数组进行排序。
+array_push	;	将一个或多个单元压入数组的末尾（入栈）	;	int array_push ( array &$array, mixed $var [, mixed $... ] )	;	array_push() 将 array 当成一个栈，并将传入的变量压入 array 的末尾。array 的长度将根据入栈变量的数目增加。和如下效果相同： <span style="color: #000000"> <span style="color: #0000BB"><?php<br />$array</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?></span> </span> 并对每个 var 重复以上动作。
+array_pop	;	将数组最后一个单元弹出（出栈）	;	mixed array_pop ( array &$array )	;	array_pop() 弹出并返回 array 数组的最后一个单元，并将数组 array 的长度减一。如果 array 为空（或者不是数组）将返回 NULL。 Will additionally produce a Warning when called on a non-array.
+array_shift	;	将数组开头的单元移出数组	;	mixed array_shift ( array &$array )	;	array_shift() 将 array 的第一个单元移出并作为结果返回，将 array 的长度减一并将所有其它单元向前移动一位。所有的数字键名将改为从零开始计数，文字键名将不变。
+array_unshift	;	在数组开头插入一个或多个单元	;	int array_unshift ( array &$array, mixed $var [, mixed $... ] )	;	array_unshift() 将传入的单元插入到 array 数组的开头。注意单元是作为整体被插入的，因此传入单元将保持同样的顺序。所有的数值键名将修改为从零开始重新计数，所有的文字键名保持不变。
+array_splice	;	把数组中的一部分去掉并用其它值取代	;	array array_splice ( array &$input, int $offset [, int $length = 0 [, mixed $replacement ]] )	;	把 input 数组中由 offset 和 length 指定的单元去掉，如果提供了 replacement 参数，则用其中的单元取代。
+array_slice	;	从数组中取出一段	;	array array_slice ( array $array, int $offset [, int $length = NULL [, bool $preserve_keys = false ]] )	;	array_slice() 返回根据 offset 和 length 参数所指定的 array 数组中的一段序列。
+array_merge	;	合并一个或多个数组	;	array array_merge ( array $array1 [, array $... ] )	;	array_merge() 将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。
+array_merge_recursive	;	递归地合并一个或多个数组	;	array array_merge_recursive ( array $array1 [, array $... ] )	;	array_merge_recursive() 将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。
+array_replace	;	使用传递的数组替换第一个数组的元素	;	array array_replace ( array $array, array $array1 [, array $... ] )	;	array_replace() 函数使用后面数组元素的值替换第一个 array 数组的值。如果一个键存在于第一个数组同时也存在于第二个数组，它的值将被第二个数组中的值替换。如果一个键存在于第二个数组，但是不存在于第一个数组，则会在第一个数组中创建这个元素。如果一个键仅存在于第一个数组，它将保持不变。如果传递了多个替换数组，它们将被按顺序依次处理，后面的数组将覆盖之前的值。
+array_replace_recursive	;	使用传递的数组递归替换第一个数组的元素	;	array array_replace_recursive ( array $array, array $array1 [, array $... ] )	;	array_replace_recursive() 使用后面数组元素的值替换第一个数组 array 的值。 如果一个键存在于第一个数组同时也存在于第二个数组，它的值将被第二个数组中的值替换。 如果一个键存在于第二个数组，但是不存在于第一个数组，则会在第一个数组中创建这个元素。 如果一个键仅存在于第一个数组，它将保持不变。 如果传递了多个替换数组，它们将被按顺序依次处理，后面的数组将覆盖之前的值。
+array_keys	;	返回数组中所有的键名	;	array array_keys ( array $input [, mixed $search_value = NULL [, bool $strict = false ]] )	;	array_keys() 返回 input 数组中的数字或者字符串的键名。
+array_values	;	返回数组中所有的值	;	array array_values ( array $input )	;	array_values() 返回 input 数组中所有的值并给其建立数字索引。
+array_count_values	;	统计数组中所有的值出现的次数	;	array array_count_values ( array $input )	;	array_count_values() 返回一个数组，该数组用 input 数组中的值作为键名，该值在 input 数组中出现的次数作为值。
+array_reverse	;	返回一个单元顺序相反的数组	;	array array_reverse ( array $array [, bool $preserve_keys = false ] )	;	array_reverse() 接受数组 array 作为输入并返回一个单元为相反顺序的新数组。
+array_reduce	;	用回调函数迭代地将数组简化为单一的值	;	mixed callback ( mixed &$result, mixed $item )	;	array_reduce() 将回调函数 function 迭代地作用到 input 数组中的每一个单元中，从而将数组简化为单一的值。
+array_pad	;	用值将数组填补到指定长度	;	array array_pad ( array $input, int $pad_size, mixed $pad_value )	;	array_pad() 返回 input 的一个拷贝，并用 pad_value 将其填补到 pad_size 指定的长度。如果 pad_size 为正，则数组被填补到右侧，如果为负则从左侧开始填补。如果 pad_size 的绝对值小于或等于 input 数组的长度则没有任何填补。有可能一次最多填补 1048576 个单元。
+array_flip	;	交换数组中的键和值	;	array array_flip ( array $trans )	;	array_flip() 返回一个反转后的 array ，例如 trans 中的键名变成了值，而 trans 中的值成了键名。
+array_change_key_case	;	返回字符串键名全为小写或大写的数组	;	array array_change_key_case ( array $input [, int $case = CASE_LOWER ] )	;	array_change_key_case() 将 input 数组中的所有键名改为全小写或大写。改变是根据后一个选项 case 参数来进行的。本函数不改变数字索引。
+array_rand	;	从数组中随机取出一个或多个单元	;	mixed array_rand ( array $input [, int $num_req = 1 ] )	;	从数组中取出一个或多个随机的单元，并返回随机条目的一个或多个键。
+array_unique	;	移除数组中重复的值	;	array array_unique ( array $array [, int $sort_flags = SORT_STRING ] )	;	array_unique() 接受 array 作为输入并返回没有重复值的新数组。
+array_intersect	;	计算数组的交集	;	array array_intersect ( array $array1, array $array2 [, array $ ... ] )	;	array_intersect() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。注意键名保留不变。
+array_intersect_key	;	使用键名比较计算数组的交集	;	array array_intersect_key ( array $array1, array $array2 [, array $ ... ] )	;	array_intersect_key() 返回一个数组，该数组包含了所有出现在 array1 中并同时出现在所有其它参数数组中的键名的值。
+array_intersect_ukey	;	用回调函数比较键名来计算数组的交集	;	int callback ( mixed $a, mixed $b )	;	array_intersect_ukey() 返回一个数组，该数组包含了所有出现在 array1 中并同时出现在所有其它参数数组中的键名的值。
+array_uintersect	;	计算数组的交集，用回调函数比较数据	;	int callback ( mixed $a, mixed $b )	;	array_uintersect() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。数据比较是用回调函数进行的。 此比较是通过用户提供的回调函数来进行的。如果认为第一个参数小于，等于，或大于第二个参数时必须分别返回一个小于零，等于零，或大于零的整数。
+array_intersect_assoc	;	带索引检查计算数组的交集	;	array array_intersect_assoc ( array $array1, array $array2 [, array $ ... ] )	;	
+array_uintersect_assoc	;	带索引检查计算数组的交集，用回调函数比较数据	;	int callback ( mixed $a, mixed $b )	;	此比较是通过用户提供的回调函数来进行的。如果认为第一个参数小于，等于，或大于第二个参数时必须分别返回一个小于零，等于零，或大于零的整数。
+array_intersect_uassoc	;	带索引检查计算数组的交集，用回调函数比较索引	;	int callback ( mixed $a, mixed $b )	;	array_intersect_uassoc() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。注意和 array_intersect() 不同的是键名也用于比较。
+array_uintersect_uassoc	;	带索引检查计算数组的交集，用回调函数比较数据和索引	;	int callback ( mixed $a, mixed $b )	;	通过额外的索引检查、回调函数比较数据和索引来返回多个数组的交集。注意和 array_uintersect() 不同的是键名也要比较。数据和索引都是用回调函数比较的。
+array_diff	;	计算数组的差集	;	array array_diff ( array $array1, array $array2 [, array $... ] )	;	对比返回在 array1 中但是不在 array2 及任何其它参数数组中的值。
+array_diff_key	;	使用键名比较计算数组的差集	;	array array_diff_key ( array $array1, array $array2 [, array $... ] )	;	根据 array1 中的键名和 array2 进行比较，返回不同键名的项。 本函数和 array_diff() 相同只除了比较是根据键名而不是值来进行的。
+array_diff_ukey	;	用回调函数对键名比较计算数组的差集	;	int callback ( mixed $a, mixed $b )	;	array_diff_ukey() 返回一个数组，该数组包括了所有出现在 array1 中但是未出现在任何其它参数数组中的键名的值。注意关联关系保留不变。本函数和 array_diff() 相同只除了比较是根据键名而不是值来进行的。
+array_udiff	;	用回调函数比较数据来计算数组的差集	;	int callback ( mixed $a, mixed $b )	;	array_udiff() 返回一个数组，该数组包括了所有在 array1 中但是不在任何其它参数数组中的值。注意键名保持不变。数据的比较是用 data_compare_func 进行的。如果认为第一个参数小于，等于，或大于第二个参数时必须分别返回一个小于零，等于零，或大于零的整数。这和 array_diff() 不同，后者使用了内部函数来比较数据。
+array_diff_assoc	;	带索引检查计算数组的差集	;	array array_diff_assoc ( array $array1, array $array2 [, array $... ] )	;	array_diff_assoc() 返回一个数组，该数组包括了所有在 array1 中但是不在任何其它参数数组中的值。注意和 array_diff() 不同的是键名也用于比较。
+array_udiff_assoc	;	带索引检查计算数组的差集，用回调函数比较数据	;	int callback ( mixed $a, mixed $b )	;	此比较是通过用户提供的回调函数来进行的。如果认为第一个参数小于，等于，或大于第二个参数时必须分别返回一个小于零，等于零，或大于零的整数。
+array_diff_uassoc	;	用用户提供的回调函数做索引检查来计算数组的差集	;	int callback ( mixed $a, mixed $b )	;	对比了 array1 和 array2 并返回不同之处。 注意和 array_diff() 不同的是键名也用于比较。
+array_udiff_uassoc	;	带索引检查计算数组的差集，用回调函数比较数据和索引	;	int callback ( mixed $a, mixed $b )	;	array_udiff_uassoc() 返回一个数组，该数组包括了所有在 array1 中但是不在任何其它参数数组中的值。
+array_sum	;	计算数组中所有值的和	;	number array_sum ( array $array )	;	array_sum() 将数组中的所有值的和以整数或浮点数的结果返回。
+array_product	;	计算数组中所有值的乘积	;	number array_product ( array $array )	;	array_product() 以整数或浮点数返回一个数组中所有值的乘积。
+array_filter	;	用回调函数过滤数组中的单元	;	array array_filter ( array $input [, callable $callback = "" ] )	;	依次将 input 数组中的每个值传递到 callback 函数。如果 callback 函数返回 TRUE，则 input 数组的当前值会被包含在返回的结果数组中。数组的键名保留不变。
+array_map	;	将回调函数作用到给定数组的单元上	;	array array_map ( callable $callback, array $arr1 [, array $... ] )	;	array_map() 返回一个数组，该数组包含了 arr1 中的所有单元经过 callback 作用过之后的单元。callback 接受的参数数目应该和传递给 array_map() 函数的数组数目一致。
+array_chunk	;	将一个数组分割成多个	;	array array_chunk ( array $input, int $size [, bool $preserve_keys = false ] )	;	将一个数组分割成多个数组，其中每个数组的单元数目由 size 决定。最后一个数组的单元数目可能会少于 size 个。
+array_combine	;	创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值	;	array array_combine ( array $keys, array $values )	;	返回一个 array ，用来自 keys 数组的值作为键名，来自 values 数组的值作为相应的值。
+array_key_exists	;	检查给定的键名或索引是否存在于数组中	;	bool array_key_exists ( mixed $key, array $search )	;	array_key_exists() 在给定的 key 存在于数组中时返回 TRUE。key 可以是任何能作为数组索引的值。 array_key_exists() 也可用于对象。
+pos	;	current()  的别名	;		;	
+sizeof	;	count()  的别名	;		;	
+assert	;	检查一个断言是否为 FALSE	;	bool assert ( mixed $assertion [, string $description ] )	;	assert() 会检查指定的 assertion 并在结果为 FALSE 时采取适当的行动。
+assert_options	;	设置/获取断言的各种标志	;	mixed assert_options ( int $what [, mixed $value ] )	;	设置 assert() 的各种控制选项，或者是仅仅查询当前的设置。
+version_compare	;	对比两个「PHP 规范化」的版本数字字符串	;	mixed version_compare ( string $version1, string $version2 [, string $operator ] )	;	version_compare() 用于对比两个「PHP 规范化」的版本数字字符串。 这对于编写仅能兼容某些版本 PHP 的程序很有帮助。
+ftok	;	Convert a pathname and a project identifier to a System V IPC key	;	int ftok ( string $pathname, string $proj )	;	The function converts the pathname of an existing accessible file and a project identifier into an integer for use with for example shmop_open() and other System V IPC keys.
+str_rot13	;	对字符串执行 ROT13 转换	;	string str_rot13 ( string $str )	;	对 str 参数执行 ROT13 编码并将结果字符串返回。
+stream_get_filters	;	Retrieve list of registered filters	;	array stream_get_filters ( void )	;	
+stream_filter_register	;	Register a user defined stream filter	;	bool stream_filter_register ( string $filtername, string $classname )	;	stream_filter_register() allows you to implement your own filter on any registered stream used with all the other filesystem functions (such as fopen() , fread() etc.).
+stream_bucket_make_writeable	;	Return a bucket object from the brigade for operating on	;	object stream_bucket_make_writeable ( resource $brigade )	;	
+stream_bucket_prepend	;	Prepend bucket to brigade	;	void stream_bucket_prepend ( resource $brigade, resource $bucket )	;	This function can be called to prepend a bucket to a bucket brigade. It is typically called from php_user_filter::filter() .
+stream_bucket_append	;	Append bucket to brigade	;	void stream_bucket_append ( resource $brigade, resource $bucket )	;	
+stream_bucket_new	;	Create a new bucket for use on the current stream	;	object stream_bucket_new ( resource $stream, string $buffer )	;	
+output_add_rewrite_var	;	添加URL重写器的值（Add URL rewriter values）	;	bool output_add_rewrite_var ( string $name, string $value )	;	此函数给URL重写机制添加名/值对。 这种名值对将被添加到URL（以GET参数的形式）和表单（以input隐藏域的形式），当透明URL重写用 session.use_trans_sid 开启时同样可以添加到session ID。 要注意，绝对URL(http://example.com/..)不能被重写。
+output_reset_rewrite_vars	;	重设URL重写器的值（Reset URL rewriter values）	;	bool output_reset_rewrite_vars ( void )	;	此函数重置URL重写器，移除所有的先前由 output_add_rewrite_var() 函数设置的重写变量，或者移除会话机制（如果session.use_trans_sid 在 session_start() 上进行了设置）。
+sys_get_temp_dir	;	返回用于临时文件的目录	;	string sys_get_temp_dir ( void )	;	返回 PHP 储存临时文件的默认目录的路径。
+token_get_all	;	Split given source into PHP tokens	;	array token_get_all ( string $source )	;	token_get_all() parses the given source string into PHP language tokens using the Zend engine's lexical scanner.
+token_name	;	Get the symbolic name of a given PHP token	;	string token_name ( int $token )	;	token_name() gets the symbolic name for a PHP token value.
+xml_parser_create	;	建立一个 XML 解析器	;	resource xml_parser_create ([ string $encoding ] )	;	函数 xml_parser_create() 建立一个新的 XML 解析器并返回可被其它 XML 函数使用的资源句柄。
+xml_parser_create_ns	;	生成一个支持命名空间的 XML 解析器	;	resource xml_parser_create_ns ([ string $encoding [, string $sep ]] )	;	函数 xml_parser_create_ns() 建立一个新的支持 XML 命名空间的解析器并返回可被其它 XML 函数使用的资源句柄。
+xml_set_object	;	在对象中使用 XML 解析器	;	pool xml_set_object ( resource $parser, object &$object )	;	该函数使得 parser 指定的解析器可以被用在 object 对象中。所有的回叫函数（callback function）都可以由 xml_set_element_handler() 等函数来设置，它们被假定为 object 对象的方法。
+xml_set_element_handler	;	建立起始和终止元素处理器	;	end_element_handler ( resource $parser, string $name )	;	为 parser 参数指定的 XML 解析器建立元素处理器函数。参数 start_element_handler 和 end_element_handler 为表示函数名称的字符串，这些函数必须在为 parser 指定的解析器调用 xml_parse() 函数时已存在。
+xml_set_character_data_handler	;	建立字符数据处理器	;	handler ( resource $parser, string $data )	;	为 parser 变量指向的 XML 解析器指定字符数据处理函数。
+xml_set_processing_instruction_handler	;	建立处理指令（PI）处理器	;	handler ( resource $parser, string $target, string $data )	;	为 parser 参数指定的 XML 解析器建立处理指令（PI）处理器函数。
+xml_set_default_handler	;	建立默认处理器	;	handler ( resource $parser, string $data )	;	为 parser 指定的 XML 处理器建立默认处理函数。
+xml_set_unparsed_entity_decl_handler	;	建立未解析实体定义声明处理器	;	handler ( resource $parser, string $entity_name, string $base, string $system_id, string $public_id, string $notation_name )	;	为 parser 参数指定的 XML 解析器建立未解析实体定义声明处理器函数。
+xml_set_notation_decl_handler	;	建立注释声明处理器	;	handler ( resource $parser, string $notation_name, string $base, string $system_id, string $public_id )	;	为 parser 参数指定的 XML 解析器建立注释声明处理器函数。
+xml_set_external_entity_ref_handler	;	建立外部实体指向处理器	;	handler ( resource $parser, string $open_entity_names, string $base, string $system_id, string $public_id )	;	为 parser 参数指定的 XML 解析器建立外部实体指向处理器函数。
+xml_set_start_namespace_decl_handler	;	建立起始命名空间声明处理器	;	handler ( resource $parser, string $prefix, string $uri )	;	Set a handler to be called when a namespace is declared. Namespace declarations occur inside start tags. But the namespace declaration start handler is called before the start tag handler for each namespace declared in that start tag.
+xml_set_end_namespace_decl_handler	;	建立终止命名空间声明处理器	;	handler ( resource $parser, string $prefix )	;	Set a handler to be called when leaving the scope of a namespace declaration. This will be called, for each namespace declaration, after the handler for the end tag of the element in which the namespace was declared.
+xml_parse	;	开始解析一个 XML 文档	;	int xml_parse ( resource $parser, string $data [, bool $is_final = false ] )	;	xml_parse() 解析 XML 文档。已配置事件的处理器根据需要被无限次调用。
+xml_parse_into_struct	;	将 XML 数据解析到数组中	;	int xml_parse_into_struct ( resource $parser, string $data, array &$values [, array &$index ] )	;	该函数将 XML 文件解析到两个对应的数组中，index 参数含有指向 values 数组中对应值的指针。最后两个数组参数可由指针传递给函数。
+xml_get_error_code	;	获取 XML 解析器错误代码	;	int xml_get_error_code ( resource $parser )	;	获取 XML 解析器错误代码。
+xml_error_string	;	获取 XML 解析器的错误字符串	;	string xml_error_string ( int $code )	;	根据给定的 code 获得 XML 解析器错误字符串。
+xml_get_current_line_number	;	获取 XML 解析器的当前行号	;	int xml_get_current_line_number ( resource $parser )	;	获取指定 XML 解析器当前的行号。
+xml_get_current_column_number	;	获取 XML 解析器的当前列号	;	int xml_get_current_column_number ( resource $parser )	;	获得指定 XML 解析器当前的列号。
+xml_get_current_byte_index	;	获取 XML 解析器的当前字节索引	;	int xml_get_current_byte_index ( resource $parser )	;	获取指定的 XML 解析器的当前字节索引（current byte index）。
+xml_parser_free	;	释放指定的 XML 解析器	;	bool xml_parser_free ( resource $parser )	;	parser 指向要释放的 XML 解析器的指针。 </dt>
+xml_parser_set_option	;	为指定 XML 解析进行选项设置	;	bool xml_parser_set_option ( resource $parser, int $option, mixed $value )	;	parser 指向要设置选项信息的 XML 解析器的指针。 </dt> option 要设置的选项名称。请参考下文。 </dt> value 要给选项设置的新值。 </dt>
+xml_parser_get_option	;	从 XML 解析器获取选项设置信息	;	mixed xml_parser_get_option ( resource $parser, int $option )	;	parser 指向要获取设置信息的 XML 解析器的指针。 </dt> option 要获取的设置选项名称。可以使用 XML_OPTION_CASE_FOLDING 和 XML_OPTION_TARGET_ENCODING 常量。其说明见 xml_parser_set_option() 。 </dt>
+utf8_encode	;	将 ISO-8859-1 编码的字符串转换为 UTF-8 编码	;	string utf8_encode ( string $data )	;	该函数将 data 字符串转换为 UTF-8 编码，并返回编码后的字符串。UTF-8 是一种用于将宽字符 值转换为字节流的 Unicode 的标准机制。UTF-8 对于纯 ASCII 字符来说是透明的，且是自同步的（也就是说这使得程序能够得知字符从字节流的何处开始），并可被普通字符串比较函数用以比较等操作。PHP 可将 UTF-8 编码为多达四个字节的字符，如： UTF-8 编码 字节（bytes） 位（bits） 表 示 1 7 0bbbbbbb 2 11 110bbbbb 10bbbbbb 3 16 1110bbbb 10bbbbbb 10bbbbbb 4 21 11110bbb 10bbbbbb 10bbbbbb 10bbbbbb
+utf8_decode	;	将用 UTF-8 方式编码的 ISO-8859-1 字符串转换成单字节的 ISO-8859-1 字符串。	;	string utf8_decode ( string $data )	;	该函数将用 UTF-8 编码的数据解码为 ISO-8859-1 编码。
+xmlwriter_open_uri	;	Create new xmlwriter using source uri for output	;	resource xmlwriter_open_uri ( string $uri )	;	Creates a new XMLWriter using uri for the output.
+xmlwriter_open_memory	;	Create new xmlwriter using memory for string output	;	resource xmlwriter_open_memory ( void )	;	Creates a new XMLWriter using memory for string output.
+xmlwriter_set_indent	;	Toggle indentation on/off	;	bool xmlwriter_set_indent ( resource $xmlwriter, bool $indent )	;	Toggles indentation on or off.
+xmlwriter_set_indent_string	;	Set string used for indenting	;	bool xmlwriter_set_indent_string ( resource $xmlwriter, string $indentString )	;	Sets the string which will be used to indent each element/attribute of the resulting xml.
+xmlwriter_start_comment	;	Create start comment	;	bool xmlwriter_start_comment ( resource $xmlwriter )	;	Starts a comment.
+xmlwriter_end_comment	;	Create end comment	;	bool xmlwriter_end_comment ( resource $xmlwriter )	;	Ends the current comment.
+xmlwriter_start_attribute	;	Create start attribute	;	bool xmlwriter_start_attribute ( resource $xmlwriter, string $name )	;	Starts an attribute.
+xmlwriter_end_attribute	;	End attribute	;	bool xmlwriter_end_attribute ( resource $xmlwriter )	;	Ends the current attribute.
+xmlwriter_write_attribute	;	Write full attribute	;	bool xmlwriter_write_attribute ( resource $xmlwriter, string $name, string $value )	;	Writes a full attribute.
+xmlwriter_start_attribute_ns	;	Create start namespaced attribute	;	bool xmlwriter_start_attribute_ns ( resource $xmlwriter, string $prefix, string $name, string $uri )	;	Starts a namespaced attribute.
+xmlwriter_write_attribute_ns	;	Write full namespaced attribute	;	bool xmlwriter_write_attribute_ns ( resource $xmlwriter, string $prefix, string $name, string $uri, string $content )	;	Writes a full namespaced attribute.
+xmlwriter_start_element	;	Create start element tag	;	bool xmlwriter_start_element ( resource $xmlwriter, string $name )	;	Starts an element.
+xmlwriter_end_element	;	End current element	;	bool xmlwriter_end_element ( resource $xmlwriter )	;	Ends the current element.
+xmlwriter_full_end_element	;	End current element	;	bool xmlwriter_full_end_element ( resource $xmlwriter )	;	End the current xml element. Writes an end tag even if the element is empty.
+xmlwriter_start_element_ns	;	Create start namespaced element tag	;	bool xmlwriter_start_element_ns ( resource $xmlwriter, string $prefix, string $name, string $uri )	;	Starts a namespaced element.
+xmlwriter_write_element	;	Write full element tag	;	bool xmlwriter_write_element ( resource $xmlwriter, string $name [, string $content ] )	;	Writes a full element tag.
+xmlwriter_write_element_ns	;	Write full namespaced element tag	;	bool xmlwriter_write_element_ns ( resource $xmlwriter, string $prefix, string $name, string $uri [, string $content ] )	;	Writes a full namespaced element tag.
+xmlwriter_start_pi	;	Create start PI tag	;	bool xmlwriter_start_pi ( resource $xmlwriter, string $target )	;	Starts a processing instruction tag.
+xmlwriter_end_pi	;	End current PI	;	bool xmlwriter_end_pi ( resource $xmlwriter )	;	Ends the current processing instruction.
+xmlwriter_write_pi	;	Writes a PI	;	bool xmlwriter_write_pi ( resource $xmlwriter, string $target, string $content )	;	Writes a processing instruction.
+xmlwriter_start_cdata	;	Create start CDATA tag	;	bool xmlwriter_start_cdata ( resource $xmlwriter )	;	Starts a CDATA.
+xmlwriter_end_cdata	;	End current CDATA	;	bool xmlwriter_end_cdata ( resource $xmlwriter )	;	Ends the current CDATA section.
+xmlwriter_write_cdata	;	Write full CDATA tag	;	bool xmlwriter_write_cdata ( resource $xmlwriter, string $content )	;	Writes a full CDATA.
+xmlwriter_text	;	Write text	;	bool xmlwriter_text ( resource $xmlwriter, string $content )	;	Writes a text.
+xmlwriter_write_raw	;	Write a raw XML text	;	bool xmlwriter_write_raw ( resource $xmlwriter, string $content )	;	Writes a raw xml text.
+xmlwriter_start_document	;	Create document tag	;	bool xmlwriter_start_document ( resource $xmlwriter [, string $version = 1.0 [, string $encoding = NULL [, string $standalone ]]] )	;	Starts a document.
+xmlwriter_end_document	;	End current document	;	bool xmlwriter_end_document ( resource $xmlwriter )	;	Ends the current document.
+xmlwriter_write_comment	;	Write full comment tag	;	bool xmlwriter_write_comment ( resource $xmlwriter, string $content )	;	Writes a full comment.
+xmlwriter_start_dtd	;	Create start DTD tag	;	bool xmlwriter_start_dtd ( resource $xmlwriter, string $qualifiedName [, string $publicId [, string $systemId ]] )	;	Starts a DTD.
+xmlwriter_end_dtd	;	End current DTD	;	bool xmlwriter_end_dtd ( resource $xmlwriter )	;	Ends the DTD of the document.
+xmlwriter_write_dtd	;	Write full DTD tag	;	bool xmlwriter_write_dtd ( resource $xmlwriter, string $name [, string $publicId [, string $systemId [, string $subset ]]] )	;	Writes a full DTD.
+xmlwriter_start_dtd_element	;	Create start DTD element	;	bool xmlwriter_start_dtd_element ( resource $xmlwriter, string $qualifiedName )	;	Starts a DTD element.
+xmlwriter_end_dtd_element	;	End current DTD element	;	bool xmlwriter_end_dtd_element ( resource $xmlwriter )	;	Ends the current DTD element.
+xmlwriter_write_dtd_element	;	Write full DTD element tag	;	bool xmlwriter_write_dtd_element ( resource $xmlwriter, string $name, string $content )	;	Writes a full DTD element.
+xmlwriter_start_dtd_attlist	;	Create start DTD AttList	;	bool xmlwriter_start_dtd_attlist ( resource $xmlwriter, string $name )	;	Starts a DTD attribute list.
+xmlwriter_end_dtd_attlist	;	End current DTD AttList	;	bool xmlwriter_end_dtd_attlist ( resource $xmlwriter )	;	Ends the current DTD attribute list.
+xmlwriter_write_dtd_attlist	;	Write full DTD AttList tag	;	bool xmlwriter_write_dtd_attlist ( resource $xmlwriter, string $name, string $content )	;	Writes a DTD attribute list.
+xmlwriter_start_dtd_entity	;	Create start DTD Entity	;	bool xmlwriter_start_dtd_entity ( resource $xmlwriter, string $name, bool $isparam )	;	Starts a DTD entity.
+xmlwriter_end_dtd_entity	;	End current DTD Entity	;	bool xmlwriter_end_dtd_entity ( resource $xmlwriter )	;	Ends the current DTD entity.
+xmlwriter_write_dtd_entity	;	Write full DTD Entity tag	;	bool xmlwriter_write_dtd_entity ( resource $xmlwriter, string $name, string $content, bool $pe, string $pubid, string $sysid, string $ndataid )	;	Writes a full DTD entity.
+xmlwriter_output_memory	;	Returns current buffer	;	string xmlwriter_output_memory ( resource $xmlwriter [, bool $flush = true ] )	;	Returns the current buffer.
+xmlwriter_flush	;	Flush current buffer	;	mixed xmlwriter_flush ( resource $xmlwriter [, bool $empty = true ] )	;	Flushes the current buffer.
+dl	;	运行时载入一个 PHP 扩展	;	bool dl ( string $library )	;	载入指定参数 library 的 PHP 扩展。
