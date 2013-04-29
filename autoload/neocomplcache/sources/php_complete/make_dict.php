@@ -1,7 +1,7 @@
 <?php
 
 require_once 'simple_html_dom.php';
-mb_internal_encoding('utf-8');
+//mb_internal_encoding('utf-8');
 
 $functions  = get_defined_functions();
 $constants  = get_defined_constants();
@@ -12,14 +12,22 @@ $classes    = get_declared_classes();
 // functions
 $output = 'functions.dict';
 
+// functions-url templates,English is default
+$_URL_ = 'http://php.net/manual/en/function.%s.php';
+// Japanese : 'http://jp1.php.net/manual/jp/function.%s.php';
+// Chinese  : 'http://cn2.php.net/manual/zh/function.%s.php';
+
 $fp = fopen($output, 'w');
 foreach ($functions['internal'] as $func) {
   $url = sprintf(
-    'http://jp1.php.net/manual/ja/function.%s.php',
+    $_URL_,
     str_replace('_', '-', $func)
   );
 
   $html = file_get_html($url);
+  if( !$html ){
+      continue;
+  }
 
   $title = '';
   foreach ($html->find('span.dc-title') as $element) {
